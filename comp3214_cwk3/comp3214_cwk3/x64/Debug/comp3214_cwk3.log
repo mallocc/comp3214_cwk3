@@ -1,0 +1,397 @@
+﻿  Obj.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(133): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(178): warning C4101: 'z': unreferenced local variable
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(178): warning C4101: 'y': unreferenced local variable
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(178): warning C4101: 'x': unreferenced local variable
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(275): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(276): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(375): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(377): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(379): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(387): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(434): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(436): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(438): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(523): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(523): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'unsigned __int64'
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(523): note: consider using '%zi' in the format string
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(570): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(570): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'unsigned __int64'
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(570): note: consider using '%zi' in the format string
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(591): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(591): note: consider using '%zi' in the format string
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(610): warning C4474: 'printf' : too many arguments passed for format string
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(610): note: placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(621): warning C4474: 'printf' : too many arguments passed for format string
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(621): note: placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(632): warning C4474: 'printf' : too many arguments passed for format string
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(632): note: placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(641): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  main.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\glslprogram.h(141): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  load_image.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(553): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(561): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(559): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(601): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(623): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(621): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(659): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(760): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(773): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(845): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(883): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(901): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(1812): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(1841): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(1859): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(2833): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(2958): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(2964): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(2972): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(2974): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(2982): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3016): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3019): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3040): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3043): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3054): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3092): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3290): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3301): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3305): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3482): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3486): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3494): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3502): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3515): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3532): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3536): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3679): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3707): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3718): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3719): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3733): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3752): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3770): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3781): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3790): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3817): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(3818): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(4032): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(4036): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(4041): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(4052): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(4081): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(4088): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(4105): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(4135): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(4168): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(4280): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(4289): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(4294): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(4298): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(4347): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\stb_image.h(4552): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+  tiny_obj_loader.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\tiny_object_loader\tiny_obj_loader.cpp(463): warning C4473: 'sscanf_s' : not enough arguments passed for format string
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\tiny_object_loader\tiny_obj_loader.cpp(463): note: placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\tiny_object_loader\tiny_obj_loader.cpp(463): note: the missing variadic argument 2 is required by format string '%s'
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\tiny_object_loader\tiny_obj_loader.cpp(463): note: this argument is used as a buffer size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\tiny_object_loader\tiny_obj_loader.cpp(754): warning C4473: 'sscanf_s' : not enough arguments passed for format string
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\tiny_object_loader\tiny_obj_loader.cpp(754): note: placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\tiny_object_loader\tiny_obj_loader.cpp(754): note: the missing variadic argument 2 is required by format string '%s'
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\tiny_object_loader\tiny_obj_loader.cpp(754): note: this argument is used as a buffer size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\tiny_object_loader\tiny_obj_loader.cpp(781): warning C4473: 'sscanf_s' : not enough arguments passed for format string
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\tiny_object_loader\tiny_obj_loader.cpp(781): note: placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\tiny_object_loader\tiny_obj_loader.cpp(781): note: the missing variadic argument 2 is required by format string '%s'
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\tiny_object_loader\tiny_obj_loader.cpp(781): note: this argument is used as a buffer size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\tiny_object_loader\tiny_obj_loader.cpp(847): warning C4473: 'sscanf_s' : not enough arguments passed for format string
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\tiny_object_loader\tiny_obj_loader.cpp(847): note: placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\tiny_object_loader\tiny_obj_loader.cpp(847): note: the missing variadic argument 2 is required by format string '%s'
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\tiny_object_loader\tiny_obj_loader.cpp(847): note: this argument is used as a buffer size
+  btVector3.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btvector3.cpp(179): warning C4267: '=': conversion from 'size_t' to 'long', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btvector3.cpp(184): warning C4267: '-=': conversion from 'size_t' to 'unsigned long', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btvector3.cpp(427): warning C4267: '=': conversion from 'size_t' to 'long', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btvector3.cpp(564): warning C4267: '=': conversion from 'size_t' to 'long', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btvector3.cpp(569): warning C4267: '-=': conversion from 'size_t' to 'unsigned long', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btvector3.cpp(815): warning C4267: '=': conversion from 'size_t' to 'long', possible loss of data
+  btThreads.cpp
+  btSerializer64.cpp
+  btSerializer.cpp
+  btQuickprof.cpp
+  btPolarDecomposition.cpp
+  btGeometryUtil.cpp
+  btConvexHullComputer.cpp
+  btConvexHull.cpp
+  btAlignedAllocator.cpp
+  btWheelInfo.cpp
+  btRaycastVehicle.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btMLCPSolver.cpp
+  btLemkeAlgorithm.cpp
+  btDantzigLCP.cpp
+  btMultiBodySliderConstraint.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\featherstone\btmultibodysliderconstraint.cpp(209): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\featherstone\btmultibodysliderconstraint.cpp(215): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\featherstone\btmultibodysliderconstraint.cpp(222): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\featherstone\btmultibodysliderconstraint.cpp(228): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+  Generating Code...
+  Compiling...
+  btMultiBodyPoint2Point.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\featherstone\btmultibodypoint2point.cpp(200): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\featherstone\btmultibodypoint2point.cpp(206): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\featherstone\btmultibodypoint2point.cpp(213): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\featherstone\btmultibodypoint2point.cpp(219): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+  btMultiBodyJointMotor.cpp
+  btMultiBodyJointLimitConstraint.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\featherstone\btmultibodyjointlimitconstraint.cpp(120): warning C4244: 'initializing': conversion from 'int' to 'btScalar', possible loss of data
+  btMultiBodyGearConstraint.cpp
+  btMultiBodyFixedConstraint.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\featherstone\btmultibodyfixedconstraint.cpp(190): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\featherstone\btmultibodyfixedconstraint.cpp(196): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\featherstone\btmultibodyfixedconstraint.cpp(203): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\featherstone\btmultibodyfixedconstraint.cpp(209): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+  btMultiBodyDynamicsWorld.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\featherstone\btmultibodydynamicsworld.cpp(828): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\featherstone\btmultibodydynamicsworld.cpp(836): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+  btMultiBodyConstraintSolver.cpp
+  btMultiBodyConstraint.cpp
+  btMultiBody.cpp
+  btSimulationIslandManagerMt.cpp
+  btSimpleDynamicsWorld.cpp
+  btRigidBody.cpp
+  btDiscreteDynamicsWorldMt.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btDiscreteDynamicsWorld.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btUniversalConstraint.cpp
+  btTypedConstraint.cpp
+  btSolve2LinearConstraint.cpp
+  btSliderConstraint.cpp
+  btSequentialImpulseConstraintSolver.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btPoint2PointConstraint.cpp
+  Generating Code...
+  Compiling...
+  btNNCGConstraintSolver.cpp
+  btHingeConstraint.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\constraintsolver\bthingeconstraint.cpp(320): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+  btHinge2Constraint.cpp
+  btGeneric6DofSpringConstraint.cpp
+  btGeneric6DofSpring2Constraint.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\constraintsolver\btgeneric6dofspring2constraint.cpp(801): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\constraintsolver\btgeneric6dofspring2constraint.cpp(1033): warning C4244: 'initializing': conversion from 'double' to 'btScalar', possible loss of data
+  btGeneric6DofConstraint.cpp
+  btGearConstraint.cpp
+  btFixedConstraint.cpp
+  btContactConstraint.cpp
+  btConeTwistConstraint.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\constraintsolver\btconetwistconstraint.cpp(868): warning C4244: '=': conversion from 'double' to 'btScalar', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\constraintsolver\btconetwistconstraint.cpp(913): warning C4244: '=': conversion from 'double' to 'btScalar', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\constraintsolver\btconetwistconstraint.cpp(973): warning C4244: '=': conversion from 'double' to 'btScalar', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\constraintsolver\btconetwistconstraint.cpp(975): warning C4244: '=': conversion from 'double' to 'btScalar', possible loss of data
+  btKinematicCharacterController.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\character\btkinematiccharactercontroller.cpp(140): warning C4305: '=': truncation from 'double' to 'btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\character\btkinematiccharactercontroller.cpp(150): warning C4305: '=': truncation from 'double' to 'btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletdynamics\character\btkinematiccharactercontroller.cpp(158): warning C4305: '=': truncation from 'double' to 'btScalar'
+  btVoronoiSimplexSolver.cpp
+  btSubSimplexConvexCast.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btRaycastCallback.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btPolyhedralContactClipping.cpp
+  btPersistentManifold.cpp
+  btMinkowskiPenetrationDepthSolver.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btGjkPairDetector.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletcollision\narrowphasecollision\btgjkpairdetector.cpp(38): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+  btGjkEpaPenetrationDepthSolver.cpp
+  btGjkEpa2.cpp
+  Generating Code...
+  Compiling...
+  btGjkConvexCast.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btConvexCast.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btContinuousConvexCollision.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  gim_tri_collision.cpp
+  gim_memory.cpp
+  gim_contact.cpp
+  gim_box_set.cpp
+  btTriangleShapeEx.cpp
+  btGImpactShape.cpp
+  btGImpactQuantizedBvh.cpp
+  btGImpactCollisionAlgorithm.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btGImpactBvh.cpp
+  btGenericPoolAllocator.cpp
+  btContactProcessing.cpp
+  btUniformScalingShape.cpp
+  btTriangleMeshShape.cpp
+  btTriangleMesh.cpp
+  btTriangleIndexVertexMaterialArray.cpp
+  btTriangleIndexVertexArray.cpp
+  btTriangleCallback.cpp
+  Generating Code...
+  Compiling...
+  btTriangleBuffer.cpp
+  btTetrahedronShape.cpp
+  btStridingMeshInterface.cpp
+  btStaticPlaneShape.cpp
+  btSphereShape.cpp
+  btShapeHull.cpp
+  btScaledBvhTriangleMeshShape.cpp
+  btPolyhedralConvexShape.cpp
+  btOptimizedBvh.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btMultiSphereShape.cpp
+  btMultimaterialTriangleMeshShape.cpp
+  btMinkowskiSumShape.cpp
+  btHeightfieldTerrainShape.cpp
+  btEmptyShape.cpp
+  btCylinderShape.cpp
+  btConvexTriangleMeshShape.cpp
+  btConvexShape.cpp
+  btConvexPolyhedron.cpp
+  btConvexPointCloudShape.cpp
+  btConvexInternalShape.cpp
+  Generating Code...
+  Compiling...
+  btConvexHullShape.cpp
+  btConvex2dShape.cpp
+  btConeShape.cpp
+  btConcaveShape.cpp
+  btCompoundShape.cpp
+  btCollisionShape.cpp
+  btCapsuleShape.cpp
+  btBvhTriangleMeshShape.cpp
+  btBoxShape.cpp
+  btBox2dShape.cpp
+  SphereTriangleDetector.cpp
+  btUnionFind.cpp
+  btSphereTriangleCollisionAlgorithm.cpp
+  btSphereSphereCollisionAlgorithm.cpp
+  btSphereBoxCollisionAlgorithm.cpp
+  btSimulationIslandManager.cpp
+  btManifoldResult.cpp
+  btInternalEdgeUtility.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btHashedSimplePairCache.cpp
+  btGhostObject.cpp
+  Generating Code...
+  Compiling...
+  btEmptyCollisionAlgorithm.cpp
+  btDefaultCollisionConfiguration.cpp
+  btConvexPlaneCollisionAlgorithm.cpp
+  btConvexConvexAlgorithm.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btConvexConcaveCollisionAlgorithm.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btConvex2dConvex2dAlgorithm.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btCompoundCompoundCollisionAlgorithm.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btCompoundCollisionAlgorithm.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btCollisionWorldImporter.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btCollisionWorld.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletcollision\collisiondispatch\btcollisionworld.cpp(1336): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+  btCollisionObject.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\bulletcollision\collisiondispatch\btcollisionobject.cpp(51): warning C4305: 'initializing': truncation from 'double' to 'btScalar'
+  btCollisionDispatcherMt.cpp
+  btCollisionDispatcher.cpp
+  btBoxBoxDetector.cpp
+  btBoxBoxCollisionAlgorithm.cpp
+  btBox2dBox2dCollisionAlgorithm.cpp
+  btActivatingCollisionAlgorithm.cpp
+  btSimpleBroadphase.cpp
+  btQuantizedBvh.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+  btOverlappingPairCache.cpp
+  Generating Code...
+  Compiling...
+  btDispatcher.cpp
+  btDbvtBroadphase.cpp
+  btDbvt.cpp
+  btCollisionAlgorithm.cpp
+  btBroadphaseProxy.cpp
+  btAxisSweep3.cpp
+  cwkp.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\glslprogram.h(141): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwkp.cpp(129): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwkp.cpp(164): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwkp.cpp(353): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwkp.cpp(397): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  comp3214_cwk3.vcxproj -> C:\Users\hercu\CloudStation\GitShit\comp3214_cwk3\comp3214_cwk3\x64\Debug\comp3214_cwk3.exe
+  comp3214_cwk3.vcxproj -> C:\Users\hercu\CloudStation\GitShit\comp3214_cwk3\comp3214_cwk3\x64\Debug\comp3214_cwk3.pdb (Full PDB)

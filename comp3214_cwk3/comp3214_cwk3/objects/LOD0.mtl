@@ -1,0 +1,54 @@
+﻿newmtl side_upper
+illum 2
+Kd 204 204 204
+Ka 51 51 51
+Ks 0 0 0
+Ke 0 0 0
+Ns 0
+map_Kd Hgn_Mothership_SideUPPER_EXPORT[2].png
+
+newmtl engine1
+illum 2
+Kd 204 204 204
+Ka 51 51 51
+Ks 0 0 0
+Ke 0 0 0
+Ns 0
+map_Kd Hgn_Mothership_Engine_EXPORT[4].png
+
+newmtl side_lower
+illum 2
+Kd 204 204 204
+Ka 51 51 51
+Ks 0 0 0
+Ke 0 0 0
+Ns 0
+map_Kd Hgn_Mothership_SideLOWER_EXPORT[2].png
+
+newmtl leftover
+illum 2
+Kd 204 204 204
+Ka 51 51 51
+Ks 0 0 0
+Ke 0 0 0
+Ns 0
+map_Kd Hgn_Mothership_Leftover_EXPORT[2].png
+
+newmtl badge1
+illum 2
+Kd 204 204 204
+Ka 51 51 51
+Ks 0 0 0
+Ke 0 0 0
+Ns 0
+map_Kd Hgn_Mothership_Badge_EXPORT[1].png
+
+newmtl leftover_bay
+illum 2
+Kd 204 204 204
+Ka 51 51 51
+Ks 0 0 0
+Ke 0 0 0
+Ns 0
+map_Kd Hgn_Mothership_LeftoverBay_EXPORT[1].png
+

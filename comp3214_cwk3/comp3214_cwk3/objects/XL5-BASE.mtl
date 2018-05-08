@@ -1,0 +1,1521 @@
+# File produced by AccuTrans 3D
+
+newmtl BlueRing1
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl BlueRing2
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl BlueRing3
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl BodyRibs
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl BottomRail
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Cap_1
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Cap_1_0001
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Cap_1_0002
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Cap_1_0003
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Cap_1_0004
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Cap_1_0005
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl Cap_1_0006
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl Cap_1_0007
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl Cap_1_0008
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl Cap_1_0009
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Cap_1_0010
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl Cap_1_0011
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Cap_2
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl Cap_2_0001
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl Cap_2_0002
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl Cap_2_0003
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Cap_2_0004
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Cap_2_0005
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Cap_2_0006
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Cap_2_0007
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl Cap_2_0008
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Cap_2_0009
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Cap_2_0010
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Cap_2_0011
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CONE1
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CONE1_0001
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CONE1_0002
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CONE1_0003
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CONE1_0004
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CONE1_0005
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CONE1001
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CONE1002
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CONE1003
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CONE1004
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CONE1005
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CONE3
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CONE3001
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CONE3002
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CYLIN
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl CYLIN_0001
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl CYLIN_0002
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl CYLIN_0003
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl CYLIN_0004
+  Ns 39.1
+  d 0.4
+  illum 2
+  Kd 0 0 0
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CYLIN_0005
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl CYLIN_0006
+  Ns 39.1
+  d 0.4
+  illum 2
+  Kd 0 0 0
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CYLIN_0007
+  Ns 39.1
+  d 0.4
+  illum 2
+  Kd 0 0 0
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CYLIN_0008
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl CYLIN_0009
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl CYLIN_0010
+  Ns 39.1
+  d 0.4
+  illum 2
+  Kd 0 0 0
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CYLIN_0011
+  Ns 39.1
+  d 0.4
+  illum 2
+  Kd 0 0 0
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CYLIN_0012
+  Ns 39.1
+  d 0.4
+  illum 2
+  Kd 0 0 0
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CYLIN_0013
+  Ns 39.1
+  d 0.4
+  illum 2
+  Kd 0 0 0
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CYLIN_0014
+  Ns 39.1
+  d 0.4
+  illum 2
+  Kd 0 0 0
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CYLIN_0015
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl CYLIN_0016
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl CYLIN_0017
+  Ns 39.1
+  d 0.4
+  illum 2
+  Kd 0 0 0
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CYLIN_0018
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl CYLIN_0019
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl CYLIN_0020
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl CYLIN_0021
+  Ns 39.1
+  d 0.4
+  illum 2
+  Kd 0 0 0
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CYLIN_0022
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl CYLIN_0023
+  Ns 39.1
+  d 0.4
+  illum 2
+  Kd 0 0 0
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CYLINDER1
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl CYLINDER10
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl CYLINDER30
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl CYLINDER7
+  Ns 39.1
+  d 0.4
+  illum 2
+  Kd 0 0 0
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CYLINDER70
+  Ns 39.1
+  d 0.4
+  illum 2
+  Kd 0 0 0
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl CYLINDER8
+  Ns 39.1
+  d 0.4
+  illum 2
+  Kd 0 0 0
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl ExhaustInn
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl ExhaustOut
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl FinLe
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl FinLe_0001
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl FinLe_0003
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl FinLeftRea
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl FinLeftShe
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.9827 0.4262 0
+  Ka 0 0 0
+  Ks 0 0 0
+  map_Kd D:\Work\Teaching\Graphics\Graphics_old\Models\xl5_3ds\Finlft.tga
+
+newmtl FinLeftWin
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl FinLftJetU
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl FinLo_0002
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 1.0 0.2 0
+  Ka 0 0 0
+  Ks 0 0 0
+  map_Kd D:\Work\Teaching\Graphics\Graphics_old\Models\xl5_3ds\Fin1.tga
+
+newmtl FinLo_0005
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 1.0 0.2 0
+  Ka 0 0 0
+  Ks 0 0 0
+  map_Kd D:\Work\Teaching\Graphics\Graphics_old\Models\xl5_3ds\Fin1.tga
+
+newmtl FinRg
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl FinRg_0002
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl FinRgtJetL
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl FinRgtJetU
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl FinRgtWing
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl FinRightRe
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl FinRightSh
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.9906 0.2325 0
+  Ka 0 0 0
+  Ks 0 0 0
+  map_Kd D:\Work\Teaching\Graphics\Graphics_old\Models\xl5_3ds\Finrt.tga
+
+newmtl FinUp_0002
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 1.0 0.2 0
+  Ka 0 0 0
+  Ks 0 0 0
+  map_Kd D:\Work\Teaching\Graphics\Graphics_old\Models\xl5_3ds\Fin1.tga
+
+newmtl FinUp_0004
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 1.0 0.2 0
+  Ka 0 0 0
+  Ks 0 0 0
+  map_Kd D:\Work\Teaching\Graphics\Graphics_old\Models\xl5_3ds\Fin1.tga
+
+newmtl FrontVertT
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl Headr
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl Headrest
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl Inter
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl InteriorCy
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl InteriorSi
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrCanopy
+  Ns 1.0
+  d 0.33
+  illum 2
+  Kd 0 0 0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrCanopyC
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrCanopyF
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrCanopyL
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrCanopyM
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrCanopyR
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrDash
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl JnrFloor
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrJetLeft
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrJetLowe
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrJetRgt
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrJetUppe
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrLe_0001
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrLe_0002
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrLeftSid
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrLeftThr
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl JnrLf
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrLf_0001
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrLftLowe
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrLftNozz
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrLftUppe
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrLowerNo
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrRearBul
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrRearDoo
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0 0.29 0.21
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrRg
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrRg_0001
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrRg_0003
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrRg_0004
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrRgtLowe
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrRgtNozz
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrRgtSide
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrRgtThru
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl JnrRgtUppe
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JnrUpperNo
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl JuniorHull
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl LeftW
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl LeftWingMe
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl LeftWingOu
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl LeftWingPo
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl LeftWingSl
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl LeftWingTa
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl LftControl
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl LftRearJet
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl LowerLftJe
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl LowerRgtJe
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl MainBody
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl MainBodyTo
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl MainJetNoz
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Obser
+  Ns 1.0
+  d 0.57
+  illum 2
+  Kd 0.25 0.25 0.25
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Obser_0001
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.67 0.67 0.44
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Obser_0002
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Obser_0003
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl ObserStrut
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl ObserTorus
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl RearVertTh
+  Ns 81.01
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl RgtControl
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl RgtRe
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl RgtRe_0001
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl RgtRe_0002
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl RgtRe_0003
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl RgtRearJet
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl RgtWi
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl RgtWingMes
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.15 0.15 0.15
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl RgtWingOut
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl RgtWingPod
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl RgtWingSla
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl RgtWingTan
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl SeatA
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl SeatA_0001
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl SeatArm1
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl SeatArm2
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl SeatB
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl SeatB_0001
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl SeatBack
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl SeatBase
+  Ns 39.1
+  d 1.0
+  illum 2
+  Kd 0.3961 0.6235 0.3765
+  Ka 0 0 0
+  Ks 1.0 1.0 1.0
+
+newmtl Steer
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Steer_0001
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl SteeringCo
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl SteeringWh
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.29 0.28 1.0
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl TailOutlin
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl TailS
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 1.0 0.2 0
+  Ka 0 0 0
+  Ks 0 0 0
+  map_Kd D:\Work\Teaching\Graphics\Graphics_old\Models\xl5_3ds\Taillabl.tga
+
+newmtl TailSlats
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl TailStripe
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 1.0 0.2 0
+  Ka 0 0 0
+  Ks 0 0 0
+  map_Kd D:\Work\Teaching\Graphics\Graphics_old\Models\xl5_3ds\Taillabr.tga
+
+newmtl Upper
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Upper_0001
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl Upper_0002
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl UpperBodyB
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.4788 0.4864 0.4788
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl UpperCap
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl UpperLftJe
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
+
+newmtl UpperRgtJe
+  Ns 1.0
+  d 1.0
+  illum 2
+  Kd 0.05 0.05 0.05
+  Ka 0 0 0
+  Ks 0 0 0
