@@ -7,6 +7,8 @@
 #include <glm\glm\gtc\noise.hpp>
 #include <btBulletDynamicsCommon.h>
 
+#include "perlin.h"
+
 #define COE 1
 #define GRAVITY 0
 
@@ -41,7 +43,7 @@ glm::mat4
 	projection;
 
 Obj
-	terrain, container;
+	terrain, container, sphere;
 
 
 LerperSequencer cameraSequence;
@@ -197,8 +199,9 @@ void loop()
 
 	//// DRAW OBJECTS
 
-	terrain.draw(1, &model_mat_handle, nullptr, nullptr, nullptr);
-	container.draw(1, &model_mat_handle, nullptr, nullptr, nullptr);
+	//terrain.draw(0, &model_mat_handle, nullptr, nullptr, nullptr);
+	sphere.draw(0, &model_mat_handle, nullptr, nullptr, nullptr);
+	//container.draw(1, &model_mat_handle, nullptr, nullptr, nullptr);
 
 	//printf("%f  %f  %f\n", sphere.pos.x,sphere.pos.y,sphere.pos.z);
 
@@ -224,24 +227,38 @@ void init_bullet()
 
 }
 
-float LoG(float x, float y, float sigma)
+
+std::vector<glm::vec3>			generate_terrain_sphere(std::vector<glm::vec3> v, float k, float zoom)
 {
-	return (1 / sqrt(glm::pi<float>() * 2 * sigma*sigma)) * exp(-((x*x + y*y) / 2 * sigma*sigma));
+	std::vector<glm::vec3> V;
+	for (int i = 0; i < v.size(); i += 3)
+	{
+		for (int j = 0; j < 3; ++j)
+		{
+			glm::vec2 uvt = glm::vec2((atan2(v[i+j].x, v[i+j].y) / 3.1415926f + 1.0f) * 0.5, (asin(v[i+j].z) / 3.1415926 + 0.5));
+			float height = perlin_noise_2D(uvt.x * zoom, uvt.y * zoom);
+			glm::vec3 nm = glm::normalize(v[i + j]);
+			glm::vec3 nv = nm * height * k + v[i + j];
+			V.push_back(nv);
+		}
+	}
+	return V;
 }
 
-std::vector<glm::vec3>			generateTerrain(int w, int h, int seed)
+std::vector<glm::vec3>			generateTerrain(int w, int h, float zoom)
 {
 	glm::vec3
 		s = glm::vec3(1 / (float)w, 0, 1 / (float)h),
-		a = glm::vec3(1, 0, 1) * s,
-		b = glm::vec3(1, 0, -1) * s,
-		c = glm::vec3(-1, 0, -1) * s,
-		d = glm::vec3(-1, 0, 1) * s;
+		a = glm::vec3(0, 0, 0) * s,
+		b = glm::vec3(0, 0, 1) * s,
+		c = glm::vec3(1, 0, 1) * s,
+		d = glm::vec3(1, 0, 0) * s;
 	std::vector<glm::vec3> n;
-	for (int x = 0; x < w; ++x)
+	
 		for (int y = 0; y < h; ++y)
+			for (int x = 0; x < w; ++x)
 		{
-			glm::vec3 t = s * glm::vec3(x, 0, y) - glm::vec3(0.5f, glm::perlin(glm::vec3(x,0,y)), 0.5f);
+			glm::vec3 t = s * glm::vec3(x, 0, y) - glm::vec3(0.5f, 0, 0.5f);
 			n.push_back(a + t);
 			n.push_back(b + t);
 			n.push_back(c + t);
@@ -249,6 +266,29 @@ std::vector<glm::vec3>			generateTerrain(int w, int h, int seed)
 			n.push_back(d + t);
 			n.push_back(a + t);
 		}
+
+
+		for (int y = 0; y < h; ++y)
+			for (int x = 0; x < w; ++x)									
+		{
+			int index = (x + y * w) * 6;
+			float heightSum = perlin_noise_2D(x * zoom, y * zoom);
+			n[index].y = heightSum;
+			n[index + 5].y = heightSum ;
+			if(x > 0)
+				n[index - 2].y = heightSum ;
+			if (y > 0)
+			{
+				n[index - w * 6 + 1].y = heightSum;
+				if (x > 0)
+				{
+					n[index - (w + 1) * 6 + 2].y = heightSum;
+					n[index - (w + 1) * 6 + 3].y = heightSum;
+				}
+			}
+		}
+
+
 	return n;
 }
 
@@ -277,7 +317,7 @@ void			init()
 	printf("\n");
 	printf("Initialising objects...\n");
 	// create sphere data for screen A, B and D
-	std::vector<glm::vec3> v = generateTerrain(100,100,0);
+	std::vector<glm::vec3> v = generateTerrain(100,100, 0.01f);
 
 	terrain = Obj(
 		"","","",
@@ -304,7 +344,21 @@ void			init()
 	);;
 	container.scale = glm::vec3(5, 5, 5);
 
-	cameraSequence = LerperSequencer(glm::vec3(), glm::vec3(0,5,-5), 0.005, 0.1);
+	v = generate_terrain_sphere(generate_sphere(100, 100), .5f, 5);
+
+	sphere = Obj(
+		"", "", "",
+		//"textures/moss_color.jpg",
+		//"textures/moss_norm.jpg",
+		//"textures/moss_height.jpg",
+		pack_object(&v, GEN_COLOR_RAND, WHITE),
+		glm::vec3(0, 0, 0),
+		glm::vec3(1, 0, 0),
+		glm::radians(0.0f),
+		glm::vec3(1, 1, 1)
+	);
+
+	cameraSequence = LerperSequencer(glm::vec3(), glm::vec3(0,0.1,-3), 0.005, 0.1);
 
 
 	init_bullet();

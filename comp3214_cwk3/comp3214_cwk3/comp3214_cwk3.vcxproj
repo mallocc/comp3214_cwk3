@@ -554,6 +554,7 @@
     <ClInclude Include="load_image.h" />
     <ClInclude Include="Obj.h" />
     <ClInclude Include="opengl.h" />
+    <ClInclude Include="perlin.h" />
     <ClInclude Include="varhandle.h" />
     <ClInclude Include="vertex.h" />
   </ItemGroup>

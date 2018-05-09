@@ -10,15 +10,26 @@ c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\in
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\LinearMath/btIDebugDraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\LinearMath/btIDebugDraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\LinearMath/btIDebugDraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
-cwk3.cpp(152): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-cwk3.cpp(194): warning C4305: 'argument': truncation from 'double' to 'btScalar'
-cwk3.cpp(307): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(345): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-cwk3.cpp(389): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(10): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(58): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+cwk3.cpp(154): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+cwk3.cpp(196): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+cwk3.cpp(361): warning C4305: 'argument': truncation from 'double' to 'float'
+cwk3.cpp(399): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+cwk3.cpp(443): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Generating code
-  805 of 5416 functions (14.9%) were compiled, the rest were copied from previous compilation.
-    58 functions were new in current compilation
-    141 functions had inline decision re-evaluated but remain unchanged
+  746 of 5368 functions (13.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    113 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   comp3214_cwk3.vcxproj -> C:\Users\hercu\CloudStation\GitShit\comp3214_cwk3\comp3214_cwk3\x64\Release\comp3214_cwk3.exe
   comp3214_cwk3.vcxproj -> C:\Users\hercu\CloudStation\GitShit\comp3214_cwk3\comp3214_cwk3\x64\Release\comp3214_cwk3.pdb (Full PDB)
