@@ -5,13 +5,14 @@
 #include <thread>
 #include <minmax.h>
 #include <glm\glm\gtc\noise.hpp>
+#include <sstream>
 
 #include "perlin.h"
 
 #define COE 1
 #define GRAVITY 0
 
-#define MOTION_L 10
+#define MOTION_L 20
 
 GLSLProgramManager	programs;
 
@@ -26,9 +27,9 @@ motion_model_mat_handle,
 motion_view_mat_handle,
 motion_proj_mat_handle,
 motion_texture_handle,
-motion_blurtexture_handle,
 motion_handles[MOTION_L],
-current_frame_handle
+current_frame_handle,
+motion_length_handle
 	;
 
 glm::vec2
@@ -64,6 +65,97 @@ GLuint frameBuffers[MOTION_L], motionblurFrameBuffers,
 int current_frame_x = 0;
 int current_frame = 0;
 
+int l = MOTION_L;
+
+
+
+
+#define SCENE_0 0
+#define SCENE_1 1
+#define SCENE_2 2
+#define SCENE_3 3
+#define SCENE_4 4
+
+int scene = SCENE_1;
+int next_scene = 0;
+
+
+struct FBO
+{
+	GLuint fbo, tex;
+
+	int w, h;
+
+	FBO(int w, int h) 
+	{
+		getFrameBuffer(&fbo, &tex);
+	}
+
+
+	void bind()
+	{
+		// Render to our framebuffer
+		glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+		// Set the list of draw buffers.
+		GLenum DrawBuffers[1] = { GL_COLOR_ATTACHMENT0 };
+		glDrawBuffers(1, DrawBuffers); // "1" is the size of DrawBuffers
+	}
+
+	void unbind()
+	{
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	}
+
+	void getFrameBuffer(GLuint * FramebufferName, GLuint * renderedTexture)
+	{
+		*FramebufferName = 0;
+		glGenFramebuffers(1, FramebufferName);
+		glBindFramebuffer(GL_FRAMEBUFFER, *FramebufferName);
+		// The texture we're going to render to
+		glGenTextures(1, renderedTexture);
+
+		// "Bind" the newly created texture : all future texture functions will modify this texture
+		glBindTexture(GL_TEXTURE_2D, *renderedTexture);
+
+		// Give an empty image to OpenGL ( the last "0" )
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB,w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
+
+		// Poor filtering. Needed !
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
+		// The depth buffer
+		GLuint depthrenderbuffer;
+		glGenRenderbuffers(1, &depthrenderbuffer);
+		glBindRenderbuffer(GL_RENDERBUFFER, depthrenderbuffer);
+		glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, w, h);
+		glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthrenderbuffer);
+
+		// Set "renderedTexture" as our colour attachement #0
+		glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, *renderedTexture, 0);
+	}
+
+	void get3DTexture(GLuint * tex, int w, int h, int d, GLuint * data)
+	{
+		//create and bind texture
+		glGenTextures(1, tex);
+		glBindTexture(GL_TEXTURE_2D_ARRAY, *tex);
+
+		glTexImage3D(GL_TEXTURE_2D_ARRAY, 0, GL_RGB, w, h, d, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+
+		// set texture wrapping to GL_REPEAT (default wrapping method)
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+		// set texture filtering parameters
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+		for (int i = 0; i < d; ++i)
+			glTexSubImage3D(GL_TEXTURE_2D_ARRAY, 0, 0, 0, i, w, h, 1, GL_RGB, GL_UNSIGNED_BYTE, data);
+
+	}
+};
 void getFrameBuffer(GLuint * FramebufferName, GLuint * renderedTexture)
 {
 	*FramebufferName = 0;
@@ -92,16 +184,6 @@ void getFrameBuffer(GLuint * FramebufferName, GLuint * renderedTexture)
 	// Set "renderedTexture" as our colour attachement #0
 	glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, *renderedTexture, 0);
 }
-
-
-#define SCENE_0 0
-#define SCENE_1 1
-#define SCENE_2 2
-#define SCENE_3 3
-#define SCENE_4 4
-
-int scene = SCENE_2;
-int next_scene = 0;
 
 //Returns random float
 inline float		randf()
@@ -540,6 +622,8 @@ void init_objects()
 //Initilise custom objects
 void			init()
 {
+
+
 	//// CREATE GLSL PROGAMS
 	printf("\n");
 	printf("Initialising GLSL programs...\n");
@@ -557,9 +641,6 @@ void			init()
 
 	motion_texture_handle = VarHandle("u_tex");
 	motion_texture_handle.init(programs.current_program);
-
-	motion_blurtexture_handle = VarHandle("u_tex_blur");
-	motion_blurtexture_handle.init(programs.current_program);
 
 
 	motion_handles[0] = VarHandle("u_tex0");
@@ -582,6 +663,31 @@ void			init()
 	motion_handles[8].init(programs.current_program);
 	motion_handles[9] = VarHandle("u_tex9");
 	motion_handles[9].init(programs.current_program);
+
+	motion_handles[10] = VarHandle("u_tex10");
+	motion_handles[10].init(programs.current_program);
+	motion_handles[11] = VarHandle("u_tex11");
+	motion_handles[11].init(programs.current_program);
+	motion_handles[12] = VarHandle("u_tex12");
+	motion_handles[12].init(programs.current_program);
+	motion_handles[13] = VarHandle("u_tex13");
+	motion_handles[13].init(programs.current_program);
+	motion_handles[14] = VarHandle("u_tex14");
+	motion_handles[14].init(programs.current_program);
+	motion_handles[15] = VarHandle("u_tex15");
+	motion_handles[15].init(programs.current_program);
+	motion_handles[16] = VarHandle("u_tex16");
+	motion_handles[16].init(programs.current_program);
+	motion_handles[17] = VarHandle("u_tex17");
+	motion_handles[17].init(programs.current_program);
+	motion_handles[18] = VarHandle("u_tex18");
+	motion_handles[18].init(programs.current_program);
+	motion_handles[19] = VarHandle("u_tex19");
+	motion_handles[19].init(programs.current_program);
+
+
+	motion_length_handle = VarHandle("u_motion_length", &l);
+	motion_length_handle.init(programs.current_program);
 
 	current_frame_handle = VarHandle("u_current_frame", &current_frame);
 	current_frame_handle.init(programs.current_program);
@@ -609,6 +715,11 @@ void			init()
 	texture_handle.init(programs.current_program);
 
 	
+	getFrameBuffer(&motionblurFrameBuffer, &motionblurFrame_tex);
+	getFrameBuffer(&frameBuffer, &screen_tex);
+
+	for (int i = 0; i < MOTION_L; ++i)
+		getFrameBuffer(&frameBuffers[i], &screen_texs[i]);
 
 	std::vector<glm::vec3>
 		v,
@@ -632,11 +743,7 @@ void			init()
 	//sphere.scale *= 1;
 
 
-	getFrameBuffer(&motionblurFrameBuffer, &motionblurFrame_tex);
-	getFrameBuffer(&frameBuffer, &screen_tex);
 
-	for(int i = 0; i < MOTION_L; ++i)
-		getFrameBuffer(&frameBuffers[i], &screen_texs[i]);
 
 	v = generate_square_mesh(1, 1);
 
@@ -727,6 +834,7 @@ void			glLoop(void(*graphics_loop)(), GLFWwindow * window)
 
 		current_frame_handle.load();
 		//screen_texture.setTex(screen_texs[current_frame]);
+		motion_length_handle.load();
 		for (int i = 0; i < MOTION_L; ++i)
 		{
 			motion_handles[i].load(screen_texs[i]);

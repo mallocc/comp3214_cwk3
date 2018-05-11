@@ -571,6 +571,7 @@
     <None Include="shaders\phong.vert" />
     <None Include="shaders\render_to_texture.frag" />
     <None Include="shaders\render_to_texture.vert" />
+    <None Include="shaders\render_to_texture2.frag" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

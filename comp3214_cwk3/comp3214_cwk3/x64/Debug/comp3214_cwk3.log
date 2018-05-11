@@ -18,18 +18,72 @@ c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\pe
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(58): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(81): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(300): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(307): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(308): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(309): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(310): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(317): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(318): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(319): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(320): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(86): warning C4244: 'argument': conversion from 'float' to 'GLsizei', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(96): warning C4244: 'argument': conversion from 'float' to 'GLsizei', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(136): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(374): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(382): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(383): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(384): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(394): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(395): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(396): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(397): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(406): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(408): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(409): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(410): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(411): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(412): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(413): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(543): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(585): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(414): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(415): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(615): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(813): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(855): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Obj.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(133): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(178): warning C4101: 'z': unreferenced local variable
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(178): warning C4101: 'y': unreferenced local variable
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(178): warning C4101: 'x': unreferenced local variable
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(196): warning C4101: 'z': unreferenced local variable
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(196): warning C4101: 'y': unreferenced local variable
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(196): warning C4101: 'x': unreferenced local variable
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(292): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(293): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(395): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(397): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(399): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(407): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(454): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(456): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(458): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(542): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(542): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'unsigned __int64'
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(542): note: consider using '%zi' in the format string
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(578): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(578): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'unsigned __int64'
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(578): note: consider using '%zi' in the format string
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(615): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(615): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'unsigned __int64'
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(615): note: consider using '%zi' in the format string
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(661): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(661): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'unsigned __int64'
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(661): note: consider using '%zi' in the format string
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(682): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(682): note: consider using '%zi' in the format string
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(701): warning C4474: 'printf' : too many arguments passed for format string
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(701): note: placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(712): warning C4474: 'printf' : too many arguments passed for format string
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(712): note: placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(723): warning C4474: 'printf' : too many arguments passed for format string
+  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(723): note: placeholders and their parameters expect 1 variadic arguments, but 2 were provided
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(732): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  Compiling...
+  main.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\glslprogram.h(141): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   comp3214_cwk3.vcxproj -> C:\Users\hercu\CloudStation\GitShit\comp3214_cwk3\comp3214_cwk3\x64\Debug\comp3214_cwk3.exe
   comp3214_cwk3.vcxproj -> C:\Users\hercu\CloudStation\GitShit\comp3214_cwk3\comp3214_cwk3\x64\Debug\comp3214_cwk3.pdb (Full PDB)
