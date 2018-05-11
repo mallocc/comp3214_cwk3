@@ -558,6 +558,20 @@
     <ClInclude Include="varhandle.h" />
     <ClInclude Include="vertex.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\basic.frag" />
+    <None Include="shaders\basic.vert" />
+    <None Include="shaders\basic_texture.frag" />
+    <None Include="shaders\basic_texture.vert" />
+    <None Include="shaders\complex.frag" />
+    <None Include="shaders\complex.vert" />
+    <None Include="shaders\complex2.frag" />
+    <None Include="shaders\complex2.vert" />
+    <None Include="shaders\phong.frag" />
+    <None Include="shaders\phong.vert" />
+    <None Include="shaders\render_to_texture.frag" />
+    <None Include="shaders\render_to_texture.vert" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

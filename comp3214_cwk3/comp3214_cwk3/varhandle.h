@@ -10,8 +10,9 @@
 #define MAT4_HANDLE 0
 #define VEC3_HANDLE 1
 #define FLOAT_HANDLE 2
-#define INTEGER_HANDLE 3
-#define NO_HANDLE 3
+#define GLUINT_HANDLE 3
+#define INT_HANDLE 4
+#define NO_HANDLE 5
 
 struct VarHandle
 {
@@ -22,6 +23,7 @@ private:
 	glm::vec3 * data_v;
 	GLfloat * data_f;
 	GLuint * data_i;
+	int * data_ii;
 	int handle_type = NO_HANDLE;
 
 public:
@@ -54,7 +56,13 @@ public:
 	{
 		var_name = var_name_;
 		data_i = data;
-		handle_type = INTEGER_HANDLE;
+		handle_type = GLUINT_HANDLE;
+	}
+	VarHandle(const char * var_name_, int * data)
+	{
+		var_name = var_name_;
+		data_ii = data;
+		handle_type = INT_HANDLE;
 	}
 
 	void init(GLuint program)
@@ -76,8 +84,10 @@ public:
 				glUniform3f(handle, data_v->x, data_v->y, data_v->z);
 			else if (handle_type == FLOAT_HANDLE)
 				glUniform1f(handle, *data_f);
-			else if (handle_type == INTEGER_HANDLE)
+			else if (handle_type == GLUINT_HANDLE)
 				glUniform1i(handle, *data_i);
+			else if (handle_type == INT_HANDLE)
+				glUniform1i(handle, *data_ii);
 		}
 	}
 	void load(glm::mat4 data)
@@ -96,6 +106,12 @@ public:
 	{
 		glUniform1i(handle, data);
 	}
+	void load(int data)
+	{
+		glUniform1i(handle, data);
+	}
+
+
 
 	GLuint get_handle_id()
 	{

@@ -31,6 +31,9 @@
     <Filter Include="Source Files\tiny_obj_loader">
       <UniqueIdentifier>{ddf16ebc-eead-4be0-af01-aed20dc328a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{6b0fc700-a7a3-456b-97ac-d01fcbd92f32}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -1214,5 +1217,43 @@
     <ClInclude Include="perlin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\basic.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\basic.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\complex.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\complex.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\complex2.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\complex2.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\phong.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\phong.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\basic_texture.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\basic_texture.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\render_to_texture.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\render_to_texture.vert">
+      <Filter>shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -22,11 +22,13 @@
 
 
 //prototypes
+glm::vec3						polar_cart(float theta, float phi);
 std::vector<glm::vec3>			subdivide(std::vector<glm::vec3> v);
 std::vector<glm::vec3>			generate_cube();
 std::vector<glm::vec3>			generate_cone(int k);
 std::vector<glm::vec3>			generate_cylinder(int k, float len);
 std::vector<glm::vec3>			generate_sphere(int lats, int longs);
+std::vector<glm::vec3>			generate_sphere_invert(int lats, int longs);
 std::vector<glm::vec3>			generate_rect();
 std::vector<glm::vec3>			generate_rects(int w, int h);
 std::vector<glm::vec2>			generate_uv_rects(int w, int h);
@@ -116,6 +118,25 @@ public:
 		GLfloat _theta,
 		glm::vec3 _scale
 	);
+	Obj::Obj(
+		const char *filename,
+		glm::vec3 c,
+		glm::vec3 _pos,
+		glm::vec3 _rotation,
+		GLfloat _theta,
+		glm::vec3 _scale,
+		glm::vec3 pre_shift
+	);
+	Obj::Obj(
+		const char *filename,
+		glm::vec3 c,
+		glm::vec3 _pos,
+		glm::vec3 _rotation,
+		GLfloat _theta,
+		glm::vec3 _scale,
+		glm::vec3 pre_shift,
+		glm::vec3 pre_rotate
+	);
 	Obj(
 		int k,
 		const char *filename,
@@ -153,6 +174,10 @@ public:
 		VarHandle *heightmap_handle
 	);
 
+	void setTex(GLuint tex)
+	{
+		this->tex = tex;
+	}
 };
 
 

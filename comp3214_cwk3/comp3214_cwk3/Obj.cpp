@@ -176,8 +176,8 @@ std::vector<glm::vec3>			generate_sphere(int lats, int longs)
 	float step_lats = glm::radians(360.0f) / float(lats);
 	float step_longs = glm::radians(360.0f) / float(longs);
 	float Radius = 1., x, y, z;
-	for (float a = 0; a <= glm::radians(360.0f); a += step_lats)
-		for (float b = 0; b <= glm::radians(360.0f); b += step_longs)
+	for (float a = -glm::radians(180.0f); a <= glm::radians(180.0f); a += step_lats)
+		for (float b = -glm::radians(180.0f); b <= glm::radians(180.0f); b += step_longs)
 		{
 			v.push_back(polar_cart(a, b));
 			v.push_back(polar_cart(a + step_lats, b));
@@ -185,7 +185,24 @@ std::vector<glm::vec3>			generate_sphere(int lats, int longs)
 			v.push_back(polar_cart(a + step_lats, b + step_longs));
 			v.push_back(polar_cart(a, b + step_longs));
 			v.push_back(polar_cart(a, b));
-
+		}
+	return v;
+}
+std::vector<glm::vec3>			generate_sphere_invert(int lats, int longs)
+{
+	std::vector<glm::vec3> v;
+	float step_lats = glm::radians(360.0f) / float(lats);
+	float step_longs = glm::radians(360.0f) / float(longs);
+	float Radius = 1., x, y, z;
+	for (float a = 0; a <= glm::radians(360.0f); a += step_lats)
+		for (float b = 0; b <= glm::radians(360.0f); b += step_longs)
+		{		
+			v.push_back(polar_cart(a, b));
+			v.push_back(polar_cart(a, b + step_longs));
+			v.push_back(polar_cart(a + step_lats, b + step_longs));
+			v.push_back(polar_cart(a + step_lats, b + step_longs));
+			v.push_back(polar_cart(a + step_lats, b));
+			v.push_back(polar_cart(a, b));
 		}
 	return v;
 }
@@ -309,7 +326,10 @@ std::vector<glm::vec2>			generate_sphereical_uvs(std::vector<glm::vec3> v)
 	std::vector<glm::vec2> uv;
 	for (int i = 0; i < v.size(); i++)
 	{
-		uv.push_back(glm::vec2((atan2(v[i].x, v[i].y) / 3.1415926f + 1.0f) * 0.5, (asin(v[i].z) / 3.1415926 + 0.5)));
+		uv.push_back(glm::vec2(
+			atan2(v[i].x, v[i].y) / glm::pi<float>() * 0.5f, 
+			asin(v[i].z) / glm::pi<float>() - .5f
+		));
 	}
 	return uv;
 }
@@ -505,7 +525,6 @@ Obj::Obj(
 	std::vector<tinyobj::shape_t> shapes;
 	std::vector<tinyobj::material_t> materials;
 	std::vector< glm::vec3 > vertices;
-	std::vector< Vertex > o;
 
 	std::string obj_err =
 		tinyobj::LoadObj(shapes, materials, filename, NULL);
@@ -516,6 +535,79 @@ Obj::Obj(
 				shapes[i].mesh.positions[shapes[i].mesh.indices[j] * 3],
 				shapes[i].mesh.positions[shapes[i].mesh.indices[j] * 3 + 1],
 				shapes[i].mesh.positions[shapes[i].mesh.indices[j] * 3 + 2]
+			));
+
+	std::vector<Vertex> data = pack_object(&vertices, GEN_ALL | GEN_COLOR, c);
+
+	printf("New object file loaded: \n   [ \n%s \n   ]\n   Vertex count: %i\n", obj_err, data.size());
+
+	pos = _pos;
+	rotation = _rotation;
+	theta = _theta;
+	scale = _scale;
+
+	init(&data);
+}
+Obj::Obj(
+	const char *filename,
+	glm::vec3 c,
+	glm::vec3 _pos,
+	glm::vec3 _rotation,
+	GLfloat _theta,
+	glm::vec3 _scale,
+	glm::vec3 pre_shift
+)
+{
+	std::vector<tinyobj::shape_t> shapes;
+	std::vector<tinyobj::material_t> materials;
+	std::vector< glm::vec3 > vertices;
+
+	std::string obj_err =
+		tinyobj::LoadObj(shapes, materials, filename, NULL);
+
+	for (int i = 0; i < shapes.size(); i++)
+		for (int j = 0; j < shapes[i].mesh.indices.size(); j++)
+			vertices.push_back(glm::vec3(
+				shapes[i].mesh.positions[shapes[i].mesh.indices[j] * 3] + pre_shift.x,
+				shapes[i].mesh.positions[shapes[i].mesh.indices[j] * 3 + 1] + pre_shift.y,
+				shapes[i].mesh.positions[shapes[i].mesh.indices[j] * 3 + 2] + pre_shift.z
+			));
+
+	std::vector<Vertex> data = pack_object(&vertices, GEN_ALL | GEN_COLOR, c);
+
+	printf("New object file loaded: \n   [ \n%s \n   ]\n   Vertex count: %i\n", obj_err, data.size());
+
+	pos = _pos;
+	rotation = _rotation;
+	theta = _theta;
+	scale = _scale;
+
+	init(&data);
+}
+Obj::Obj(
+	const char *filename,
+	glm::vec3 c,
+	glm::vec3 _pos,
+	glm::vec3 _rotation,
+	GLfloat _theta,
+	glm::vec3 _scale,
+	glm::vec3 pre_shift,
+	glm::vec3 pre_rotate
+)
+{
+	std::vector<tinyobj::shape_t> shapes;
+	std::vector<tinyobj::material_t> materials;
+	std::vector< glm::vec3 > vertices;
+
+	std::string obj_err =
+		tinyobj::LoadObj(shapes, materials, filename, NULL);
+
+	for (int i = 0; i < shapes.size(); i++)
+		for (int j = 0; j < shapes[i].mesh.indices.size(); j++)
+			vertices.push_back(glm::quat(pre_rotate) * glm::vec3(
+				shapes[i].mesh.positions[shapes[i].mesh.indices[j] * 3] + pre_shift.x,
+				shapes[i].mesh.positions[shapes[i].mesh.indices[j] * 3 + 1] + pre_shift.y,
+				shapes[i].mesh.positions[shapes[i].mesh.indices[j] * 3 + 2] + pre_shift.z
 			));
 
 	std::vector<Vertex> data = pack_object(&vertices, GEN_ALL | GEN_COLOR, c);
@@ -545,7 +637,6 @@ Obj::Obj(
 	std::vector<tinyobj::shape_t> shapes;
 	std::vector<tinyobj::material_t> materials;
 	std::vector< glm::vec3 > vertices;
-	std::vector< Vertex > o;
 
 	std::string obj_err =
 		tinyobj::LoadObj(shapes, materials, filename, NULL);

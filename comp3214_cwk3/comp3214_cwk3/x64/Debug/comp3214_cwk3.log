@@ -1,19 +1,35 @@
 ﻿  cwk3.cpp
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\glslprogram.h(141): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\lerp.h(36): warning C4800: 'float': forcing value to bool 'true' or 'false' (performance warning)
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\lerp.h(38): warning C4800: 'float': forcing value to bool 'true' or 'false' (performance warning)
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(623): warning C4002: too many actual parameters for macro 'max'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(661): warning C4002: too many actual parameters for macro 'min'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(662): warning C4002: too many actual parameters for macro 'max'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(718): warning C4002: too many actual parameters for macro 'max'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(800): warning C4002: too many actual parameters for macro 'max'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(801): warning C4002: too many actual parameters for macro 'max'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(169): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(170): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\bullet_include_only_one\bullet_basic\linearmath\btidebugdraw.h(171): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(152): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(194): warning C4305: 'argument': truncation from 'double' to 'btScalar'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(10): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(58): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(81): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(300): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(307): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(308): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(309): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(310): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(317): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(318): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(319): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(320): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(358): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(402): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(413): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(543): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(585): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   comp3214_cwk3.vcxproj -> C:\Users\hercu\CloudStation\GitShit\comp3214_cwk3\comp3214_cwk3\x64\Debug\comp3214_cwk3.exe
   comp3214_cwk3.vcxproj -> C:\Users\hercu\CloudStation\GitShit\comp3214_cwk3\comp3214_cwk3\x64\Debug\comp3214_cwk3.pdb (Full PDB)
