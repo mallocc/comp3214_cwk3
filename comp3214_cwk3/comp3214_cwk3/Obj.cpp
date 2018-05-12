@@ -1,5 +1,8 @@
 #include "Obj.h"
 #include <math.h>  
+#include <minmax.h>
+#define STB_PERLIN_IMPLEMENTATION
+#include <stb_perlin.h>
 #define TINYOBJLOADER_IMPLEMENTATION
 #include "tiny_obj_loader.h"
 
@@ -355,6 +358,101 @@ std::vector<glm::vec3>			generate_colour_buffer(glm::vec3 colour, int n)
 		v.push_back(colour);
 	return v;
 }
+std::vector<glm::vec3>			generate_terrain_sphere(std::vector<glm::vec3> v, std::vector<glm::vec3> m)
+{
+	std::vector<glm::vec3> V;
+	for (int i = 0; i < v.size(); i += 3)
+	{
+		for (int j = 0; j < 3; ++j)
+		{
+			glm::vec2 uvt = glm::vec2((atan2(v[i + j].x, v[i + j].y) / 3.1415926f + 1.0f) * 0.5, (asin(v[i + j].z) / 3.1415926 + 0.5));
+			float height = m[i + j].y;
+			glm::vec3 nm = glm::normalize(v[i + j]);
+			glm::vec3 nv = nm * height + v[i + j];
+			V.push_back(nv);
+		}
+	}
+	return V;
+}
+std::vector<glm::vec3>			generate_square_mesh(int w, int h)
+{
+	glm::vec3
+		s = glm::vec3(1 / (float)w, 0, 1 / (float)h),
+		a = glm::vec3(0, 0, 0) * s,
+		b = glm::vec3(0, 0, 1) * s,
+		c = glm::vec3(1, 0, 1) * s,
+		d = glm::vec3(1, 0, 0) * s;
+	std::vector<glm::vec3> n;
+
+	for (int y = 0; y < h; ++y)
+		for (int x = 0; x < w; ++x)
+		{
+			glm::vec3 t = s * glm::vec3(x, 0, y) - glm::vec3(0.5f, 0, 0.5f);
+			n.push_back(a + t);
+			n.push_back(b + t);
+			n.push_back(c + t);
+			n.push_back(c + t);
+			n.push_back(d + t);
+			n.push_back(a + t);
+		}
+	return n;
+}
+std::vector<glm::vec3>	*		generate_terrain(std::vector<glm::vec3> * v, int w, int h, float variation, float flattness)
+{
+	float m = variation / (float)max(w, h);
+	for (int y = 0; y < h; ++y)
+		for (int x = 0; x < w; ++x)
+		{
+			int index = (x + y * w) * 6;
+			float heightSum = stb_perlin_noise3(x * m, y * m, 0, m,m) * flattness;
+			(*v)[index].y += heightSum;
+			(*v)[index + 5].y += heightSum;
+			if (x > 0)
+				(*v)[index - 2].y += heightSum;
+			if (y > 0)
+			{
+				(*v)[index - w * 6 + 1].y += heightSum;
+				if (x > 0)
+				{
+					(*v)[index - (w + 1) * 6 + 2].y += heightSum;
+					(*v)[index - (w + 1) * 6 + 3].y += heightSum;
+				}
+			}
+		}
+	return v;
+}
+std::vector<glm::vec3>			generate_terrian_colour(std::vector<glm::vec3> v, float max_height)
+{
+	std::vector<glm::vec3> c;
+	float f, h;
+	for (int i = 0; i < v.size(); i++)
+	{
+		f = randf();
+		h = v[i].y / max_height;
+		c.push_back(glm::vec3(0.2f, h * 2 + 0.35f, 0.1f) + f * glm::vec3(1,1,1) * 0.05f + glm::clamp(h * h * h * 10000.0f, 0.0f, 1.0f) * glm::vec3(1, 1, 1));
+	}
+	return c;
+}
+std::vector<glm::vec3>			generate_water_colour(std::vector<glm::vec3> v)
+{
+	std::vector<glm::vec3> c;
+	float f, h;
+	for (int i = 0; i < v.size(); i++)
+	{
+		f = randf();
+		h = v[i].y;
+		c.push_back((glm::vec3(0, 0, 1) * (0.5f + glm::clamp(h * 1000.0f, 0.0f, 1.0f)) + glm::vec3(0.5, 0.5, 0.5) * 0.3f + glm::vec3(0, 1, 0) * 0.1f));
+	}
+	return c;
+}
+std::vector<glm::vec3>			pre_rotate(std::vector<glm::vec3> v, glm::vec3 rotate)
+{
+	for (glm::vec3 V : v)
+		V = glm::quat(rotate) * V;
+	return v;
+}
+
+
 // generates a random color buffer where max is the cap color
 std::vector<glm::vec3>			random_colour_buffer(glm::vec3 max, int n)
 {

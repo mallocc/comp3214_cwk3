@@ -6,12 +6,10 @@
 #include <minmax.h>
 #include <glm\glm\gtc\noise.hpp>
 #include <sstream>
-
-#include "perlin.h"
+#include "fbo.h"
 
 #define COE 1
 #define GRAVITY 0
-
 #define MOTION_L 20
 
 GLSLProgramManager	programs;
@@ -29,7 +27,13 @@ motion_proj_mat_handle,
 motion_texture_handle,
 motion_handles[MOTION_L],
 current_frame_handle,
-motion_length_handle
+motion_length_handle,
+
+glow_model_mat_handle,
+glow_view_mat_handle,
+glow_proj_mat_handle,
+glow_texture_handle,
+glow_res_handle
 	;
 
 glm::vec2
@@ -49,26 +53,24 @@ glm::mat4
 	view, 
 	projection;
 
+FBO
+	motion_blur_parts[MOTION_L],
+	motion_blur_fbo,
+	glow_fbo,
+	basic_fbo,
+	combined_fbo;
+
 Obj
-	terrain, container, sphere, water, water_sphere, falcon,
-	star, moon, stars,
-	screen_texture, screen_texture2;
+terrain, container, sphere, water, water_sphere, falcon,
+star, moon, stars,
+screen_texture;
 
 std::vector<CameraSequencer> cameraSequences;
-
-GLuint frameBuffer, motionblurFrameBuffer, 
-		screen_tex, motionblurFrame_tex;
-
-GLuint frameBuffers[MOTION_L], motionblurFrameBuffers,
-		screen_texs[MOTION_L], motionblurFrame_texs;
 
 int current_frame_x = 0;
 int current_frame = 0;
 
 int l = MOTION_L;
-
-
-
 
 #define SCENE_0 0
 #define SCENE_1 1
@@ -79,111 +81,9 @@ int l = MOTION_L;
 int scene = SCENE_1;
 int next_scene = 0;
 
+bool MOTIONBLUR_ON = 0;
+bool GLOW_ON = 0;
 
-struct FBO
-{
-	GLuint fbo, tex;
-
-	int w, h;
-
-	FBO(int w, int h) 
-	{
-		getFrameBuffer(&fbo, &tex);
-	}
-
-
-	void bind()
-	{
-		// Render to our framebuffer
-		glBindFramebuffer(GL_FRAMEBUFFER, fbo);
-		// Set the list of draw buffers.
-		GLenum DrawBuffers[1] = { GL_COLOR_ATTACHMENT0 };
-		glDrawBuffers(1, DrawBuffers); // "1" is the size of DrawBuffers
-	}
-
-	void unbind()
-	{
-		glBindFramebuffer(GL_FRAMEBUFFER, 0);
-	}
-
-	void getFrameBuffer(GLuint * FramebufferName, GLuint * renderedTexture)
-	{
-		*FramebufferName = 0;
-		glGenFramebuffers(1, FramebufferName);
-		glBindFramebuffer(GL_FRAMEBUFFER, *FramebufferName);
-		// The texture we're going to render to
-		glGenTextures(1, renderedTexture);
-
-		// "Bind" the newly created texture : all future texture functions will modify this texture
-		glBindTexture(GL_TEXTURE_2D, *renderedTexture);
-
-		// Give an empty image to OpenGL ( the last "0" )
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB,w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
-
-		// Poor filtering. Needed !
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-
-		// The depth buffer
-		GLuint depthrenderbuffer;
-		glGenRenderbuffers(1, &depthrenderbuffer);
-		glBindRenderbuffer(GL_RENDERBUFFER, depthrenderbuffer);
-		glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, w, h);
-		glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthrenderbuffer);
-
-		// Set "renderedTexture" as our colour attachement #0
-		glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, *renderedTexture, 0);
-	}
-
-	void get3DTexture(GLuint * tex, int w, int h, int d, GLuint * data)
-	{
-		//create and bind texture
-		glGenTextures(1, tex);
-		glBindTexture(GL_TEXTURE_2D_ARRAY, *tex);
-
-		glTexImage3D(GL_TEXTURE_2D_ARRAY, 0, GL_RGB, w, h, d, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
-
-		// set texture wrapping to GL_REPEAT (default wrapping method)
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
-		// set texture filtering parameters
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-		for (int i = 0; i < d; ++i)
-			glTexSubImage3D(GL_TEXTURE_2D_ARRAY, 0, 0, 0, i, w, h, 1, GL_RGB, GL_UNSIGNED_BYTE, data);
-
-	}
-};
-void getFrameBuffer(GLuint * FramebufferName, GLuint * renderedTexture)
-{
-	*FramebufferName = 0;
-	glGenFramebuffers(1, FramebufferName);
-	glBindFramebuffer(GL_FRAMEBUFFER, *FramebufferName);
-	// The texture we're going to render to
-	glGenTextures(1, renderedTexture);
-
-	// "Bind" the newly created texture : all future texture functions will modify this texture
-	glBindTexture(GL_TEXTURE_2D, *renderedTexture);
-
-	// Give an empty image to OpenGL ( the last "0" )
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, window_size.x, window_size.y, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
-
-	// Poor filtering. Needed !
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-
-	// The depth buffer
-	GLuint depthrenderbuffer;
-	glGenRenderbuffers(1, &depthrenderbuffer);
-	glBindRenderbuffer(GL_RENDERBUFFER, depthrenderbuffer);
-	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, window_size.x, window_size.y);
-	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthrenderbuffer);
-
-	// Set "renderedTexture" as our colour attachement #0
-	glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, *renderedTexture, 0);
-}
 
 //Returns random float
 inline float		randf()
@@ -234,6 +134,12 @@ static void		key_callback(GLFWwindow* window, int key, int scancode, int action,
 		case GLFW_KEY_SPACE:
 			transition_scene(scene + 1, eye_position, eye_direction, up, fov);
 			break;
+		case GLFW_KEY_M:
+			MOTIONBLUR_ON = !MOTIONBLUR_ON;
+			break;
+		case GLFW_KEY_G:
+			GLOW_ON = !GLOW_ON;
+			break;
 		case GLFW_KEY_ESCAPE:
 		case GLFW_KEY_Q:
 			glfwSetWindowShouldClose(window, GL_TRUE);
@@ -265,10 +171,7 @@ void loop()
 	//sphere.theta += 0.0001f;
 	//water_sphere.theta += 0.0001f;
 
-	//// LOAD GLOBAL HANDLES
-	view_mat_handle.load();
-	proj_mat_handle.load();
-	ambient_color_handle.load();
+
 
 	//// DRAW OBJECTS
 
@@ -318,107 +221,6 @@ void loop()
 
 	
 }
-
-std::vector<glm::vec3>			generate_terrain_sphere(std::vector<glm::vec3> v, std::vector<glm::vec3> m)
-{
-	std::vector<glm::vec3> V;
-	for (int i = 0; i < v.size(); i += 3)
-	{
-		for (int j = 0; j < 3; ++j)
-		{
-			glm::vec2 uvt = glm::vec2((atan2(v[i+j].x, v[i+j].y) / 3.1415926f + 1.0f) * 0.5, (asin(v[i+j].z) / 3.1415926 + 0.5));
-			float height = m[i+j].y;
-			glm::vec3 nm = glm::normalize(v[i + j]);
-			glm::vec3 nv = nm * height + v[i + j];
-			V.push_back(nv);
-		}
-	}
-	return V;
-}
-
-std::vector<glm::vec3>			generate_square_mesh(int w, int h)
-{
-	glm::vec3
-		s = glm::vec3(1 / (float)w, 0, 1 / (float)h),
-		a = glm::vec3(0, 0, 0) * s,
-		b = glm::vec3(0, 0, 1) * s,
-		c = glm::vec3(1, 0, 1) * s,
-		d = glm::vec3(1, 0, 0) * s;
-	std::vector<glm::vec3> n;
-	
-		for (int y = 0; y < h; ++y)
-			for (int x = 0; x < w; ++x)
-		{
-			glm::vec3 t = s * glm::vec3(x, 0, y) - glm::vec3(0.5f, 0, 0.5f);
-			n.push_back(a + t);
-			n.push_back(b + t);
-			n.push_back(c + t);
-			n.push_back(c + t);
-			n.push_back(d + t);
-			n.push_back(a + t);
-		}
-	return n;
-}
-
-std::vector<glm::vec3>	*		generate_terrain(std::vector<glm::vec3> * v, int w, int h, float variation, float flattness)
-{
-	float m = variation / (float)max(w, h);
-	for (int y = 0; y < h; ++y)
-		for (int x = 0; x < w; ++x)
-		{
-			int index = (x + y * w) * 6;
-			float heightSum = perlin_noise_2D(x * m, y * m) * flattness;
-			(*v)[index].y += heightSum;
-			(*v)[index + 5].y += heightSum;
-			if (x > 0)
-				(*v)[index - 2].y += heightSum;
-			if (y > 0)
-			{
-				(*v)[index - w * 6 + 1].y += heightSum;
-				if (x > 0)
-				{
-					(*v)[index - (w + 1) * 6 + 2].y += heightSum;
-					(*v)[index - (w + 1) * 6 + 3].y += heightSum;
-				}
-			}
-		}
-	return v;
-}
-
-std::vector<glm::vec3>			generate_terrian_colour(std::vector<glm::vec3> v, float max_height)
-{
-	std::vector<glm::vec3> c;
-	float f, h;
-	for (int i = 0; i < v.size(); i++)
-	{
-		f = randf();
-		h = v[i].y / max_height;
-		c.push_back(glm::vec3(0.2f, h * 2 + 0.35f, 0.1f) + f * WHITE * 0.05f + glm::clamp(h * h * h * 10000.0f,0.0f,1.0f) * WHITE);
-	}
-	return c;
-}
-
-std::vector<glm::vec3>			generate_water_colour(std::vector<glm::vec3> v)
-{
-	std::vector<glm::vec3> c;
-	float f, h;
-	for (int i = 0; i < v.size(); i++)
-	{
-		f = randf();
-		h = v[i].y;
-		c.push_back((BLUE * (0.5f + glm::clamp(h * 1000.0f,0.0f, 1.0f)) + GREY * 0.3f + GREEN * 0.1f));
-	}
-	return c;
-}
-
-std::vector<glm::vec3>			pre_rotate(std::vector<glm::vec3> v, glm::vec3 rotate)
-{
-	for (glm::vec3 V : v)
-		V = glm::quat(rotate) * V;
-	return v;
-}
-
-
 
 void init_camera_tour()
 {
@@ -628,21 +430,39 @@ void			init()
 	printf("\n");
 	printf("Initialising GLSL programs...\n");
 	programs.add_program("shaders/basic.vert", "shaders/basic.frag");
+	programs.add_program("shaders/basic_texture.vert", "shaders/basic_texture.frag");
 	programs.add_program("shaders/render_to_texture.vert", "shaders/render_to_texture.frag");
-	
+	programs.add_program("shaders/basic_texture.vert", "shaders/basic_texture_glow.frag");
+
+
+	//programs.add_program("shaders/phong.vert", "shaders/phong.frag");
+
+
+	//// CREATE HANDLES
+	printf("\n");
+	printf("Initialising variable handles...\n");
+
+	programs.load_program(1);
+	model_mat_handle = VarHandle("u_m", &model);
+	model_mat_handle.init(programs.current_program);
+	view_mat_handle = VarHandle("u_v", &view);
+	view_mat_handle.init(programs.current_program);
+	proj_mat_handle = VarHandle("u_p", &projection);
+	proj_mat_handle.init(programs.current_program);
+	ambient_color_handle = VarHandle("u_ambient_color", &ambient_color);
+	ambient_color_handle.init(programs.current_program);
+	texture_handle = VarHandle("u_tex");
+	texture_handle.init(programs.current_program);
+
+	programs.load_program(2);
 	motion_model_mat_handle = VarHandle("u_m", &model);
 	motion_model_mat_handle.init(programs.current_program);
-
 	motion_view_mat_handle = VarHandle("u_v", &view);
 	motion_view_mat_handle.init(programs.current_program);
-
 	motion_proj_mat_handle = VarHandle("u_p", &projection);
 	motion_proj_mat_handle.init(programs.current_program);
-
 	motion_texture_handle = VarHandle("u_tex");
 	motion_texture_handle.init(programs.current_program);
-
-
 	motion_handles[0] = VarHandle("u_tex0");
 	motion_handles[0].init(programs.current_program);
 	motion_handles[1] = VarHandle("u_tex1");
@@ -663,7 +483,6 @@ void			init()
 	motion_handles[8].init(programs.current_program);
 	motion_handles[9] = VarHandle("u_tex9");
 	motion_handles[9].init(programs.current_program);
-
 	motion_handles[10] = VarHandle("u_tex10");
 	motion_handles[10].init(programs.current_program);
 	motion_handles[11] = VarHandle("u_tex11");
@@ -684,66 +503,33 @@ void			init()
 	motion_handles[18].init(programs.current_program);
 	motion_handles[19] = VarHandle("u_tex19");
 	motion_handles[19].init(programs.current_program);
-
-
 	motion_length_handle = VarHandle("u_motion_length", &l);
 	motion_length_handle.init(programs.current_program);
-
 	current_frame_handle = VarHandle("u_current_frame", &current_frame);
 	current_frame_handle.init(programs.current_program);
 
-	programs.add_program("shaders/basic_texture.vert", "shaders/basic_texture.frag");
-	//programs.add_program("shaders/phong.vert", "shaders/phong.frag");
-
-
-	//// CREATE HANDLES
-	printf("\n");
-	printf("Initialising variable handles...\n");
-	model_mat_handle = VarHandle("u_m", &model);
-	model_mat_handle.init(programs.current_program);
-
-	view_mat_handle = VarHandle("u_v", &view);
-	view_mat_handle.init(programs.current_program);
-
-	proj_mat_handle = VarHandle("u_p", &projection);
-	proj_mat_handle.init(programs.current_program);
-
-	ambient_color_handle = VarHandle("u_ambient_color", &ambient_color);
-	ambient_color_handle.init(programs.current_program);
+	programs.load_program(3);
+	glow_model_mat_handle = VarHandle("u_m", &model);
+	glow_model_mat_handle.init(programs.current_program);
+	glow_view_mat_handle = VarHandle("u_v", &view);
+	glow_view_mat_handle.init(programs.current_program);
+	glow_proj_mat_handle = VarHandle("u_p", &projection);
+	glow_proj_mat_handle.init(programs.current_program);
+	glow_texture_handle = VarHandle("u_tex");
+	glow_texture_handle.init(programs.current_program);
+	glow_res_handle = VarHandle("u_glow_res");
+	glow_res_handle.init(programs.current_program);
 	
-	texture_handle = VarHandle("u_tex");
-	texture_handle.init(programs.current_program);
-
-	
-	getFrameBuffer(&motionblurFrameBuffer, &motionblurFrame_tex);
-	getFrameBuffer(&frameBuffer, &screen_tex);
-
+	basic_fbo = FBO(window_size.x, window_size.y);
+	glow_fbo = FBO(window_size.x, window_size.y);
+	motion_blur_fbo = FBO(window_size.x, window_size.y);
+	combined_fbo = FBO(window_size.x, window_size.y);
 	for (int i = 0; i < MOTION_L; ++i)
-		getFrameBuffer(&frameBuffers[i], &screen_texs[i]);
+		motion_blur_parts[i] = FBO(window_size.x, window_size.y);
 
 	std::vector<glm::vec3>
 		v,
 		c;
-	//int res = 100;
-
-	//v = pre_rotate(generate_sphere(res, res),
-	//	glm::vec3(90, 0, 0));
-
-	//sphere = Obj(
-	//	"textures/5672_mars_4k_color.jpg", "", "",
-	//	//"textures/moss_color.jpg",
-	//	//"textures/moss_norm.jpg",
-	//	//"textures/moss_height.jpg",
-	//	pack_object(&v, GEN_UVS_SPHERE, BLACK),
-	//	glm::vec3(0, 0, 0),
-	//	glm::vec3(1, 0, 0),
-	//	glm::radians(90.0f),
-	//	glm::vec3(1, 1, 1)
-	//);
-	//sphere.scale *= 1;
-
-
-
 
 	v = generate_square_mesh(1, 1);
 
@@ -759,20 +545,6 @@ void			init()
 		glm::vec3(1, 1, 1)
 	);
 	screen_texture.scale *= 1;
-
-	screen_texture2 = Obj(
-		"", "", "",
-		//"textures/moss_color.jpg",
-		//"textures/moss_norm.jpg",
-		//"textures/moss_height.jpg",
-		pack_object(&v, GEN_UVS_RECTS, BLACK),
-		glm::vec3(),
-		glm::vec3(0, 0, 1),
-		glm::radians(45.0f),
-		glm::vec3(1, 1, 1)
-	);
-	screen_texture2.scale *= 1;
-
 
 	init_objects();
 
@@ -792,89 +564,106 @@ void			glLoop(void(*graphics_loop)(), GLFWwindow * window)
 		// start clock for this tick
 		auto start = std::chrono::high_resolution_clock::now();
 
-		glActiveTexture(GL_TEXTURE0);
-
-		programs.load_program(2);
-		// Render to our framebuffer
-		glBindFramebuffer(GL_FRAMEBUFFER, frameBuffers[current_frame]);
-		// Set the list of draw buffers.
-		GLenum DrawBuffers[1] = { GL_COLOR_ATTACHMENT0 };
-		glDrawBuffers(1, DrawBuffers); // "1" is the size of DrawBuffers
-
-		//Clear color buffer  
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		// set clear color
-		glClearColor(0.0f,0.0f,0.0f, 1.);
-
-		projection = glm::perspective(glm::radians((1/sqrt(1 - pow(glm::length(eye_position - old_eye_position),2) / (stars.scale.x))) * 45.0f), (float)window_size.x / (float)window_size.y, 0.1f, 1000000.0f);
-		view = glm::lookAt(eye_position, eye_direction, up);
-		old_eye_position = eye_position;
-
-		// call the graphics loop
-		graphics_loop();
-
-		glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-		glActiveTexture(GL_TEXTURE0);
-		programs.load_program(1);
-		// Render to our framebuffer
-		//glBindFramebuffer(GL_FRAMEBUFFER, motionblurFrameBuffer);
-
-		 //Clear color buffer  
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		// set clear color
-		glClearColor(0.0f, 0.0f, 0.0f, 1.);
-
-		projection = glm::perspective(glm::radians(60.0f), 1.0f, 0.1f, 1000000.0f);
-		view = glm::lookAt(glm::vec3(-0.866, 0, 0), glm::vec3(), glm::vec3(0, 1, 0));
-
-		//// LOAD GLOBAL HANDLES
-		motion_view_mat_handle.load();
-		motion_proj_mat_handle.load();
-
-		current_frame_handle.load();
-		//screen_texture.setTex(screen_texs[current_frame]);
-		motion_length_handle.load();
-		for (int i = 0; i < MOTION_L; ++i)
+		if (MOTIONBLUR_ON)
 		{
-			motion_handles[i].load(screen_texs[i]);
-			glActiveTexture(GL_TEXTURE0 + screen_texs[i]);
-			glBindTexture(GL_TEXTURE_2D, screen_texs[i]);
+			//// render normal scene to FBO
+			programs.load_program(1);
+			motion_blur_parts[current_frame].bind();
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			glClearColor(0.0f, 0.0f, 0.0f, 1.);
+			projection = glm::perspective(glm::radians((1 / sqrt(1 - pow(glm::length(eye_position - old_eye_position), 2) / (stars.scale.x))) * 45.0f), (float)window_size.x / (float)window_size.y, 0.1f, 1000000.0f);
+			view = glm::lookAt(eye_position, eye_direction, up);
+			old_eye_position = eye_position;
+			//// LOAD GLOBAL HANDLES
+			view_mat_handle.load();
+			proj_mat_handle.load();
+			ambient_color_handle.load();
+			//// DRAW
+			graphics_loop();
+			motion_blur_parts[current_frame].unbind();			
+			
+			
+			//// draw FBO from normal scene
+			programs.load_program(2);
+			//motion_blur_fbo.bind();
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			glClearColor(0.0f, 0.0f, 0.0f, 1.);
+			projection = glm::perspective(glm::radians(60.0f), 1.0f, 0.1f, 1000000.0f);
+			view = glm::lookAt(glm::vec3(-0.866, 0, 0), glm::vec3(), glm::vec3(0, 1, 0));
+			//// LOAD GLOBAL HANDLES
+			motion_view_mat_handle.load();
+			motion_proj_mat_handle.load();
+			current_frame_handle.load();
+			motion_length_handle.load();
+			//// DRAW
+			for (int i = 0; i < MOTION_L; ++i)
+			{
+				motion_handles[i].load(motion_blur_parts[i].tex);
+				glActiveTexture(GL_TEXTURE0 + motion_blur_parts[i].tex);
+				glBindTexture(GL_TEXTURE_2D, motion_blur_parts[i].tex);
+			}
+			screen_texture.draw(0, &motion_model_mat_handle, &motion_texture_handle, nullptr, nullptr);
+			for (int i = 0; i < MOTION_L; ++i)
+			{
+				glActiveTexture(GL_TEXTURE0 + motion_blur_parts[i].tex);
+				glBindTexture(GL_TEXTURE_2D, GL_TEXTURE0);
+			}
+			motion_blur_fbo.unbind();
+
+			current_frame++;
+			current_frame %= MOTION_L;// INT32_MAX;
 		}
-		screen_texture.draw(0, &motion_model_mat_handle, &motion_texture_handle, nullptr, nullptr);
-		for (int i = 0; i < MOTION_L; ++i)
+
+		else if (GLOW_ON)
+		{			
+			//// draw normal scene
+			programs.load_program(1);
+			basic_fbo.bind();
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			glClearColor(0.0f, 0.0f, 0.0f, 1.);
+			projection = glm::perspective(glm::radians((1 / sqrt(1 - pow(glm::length(eye_position - old_eye_position), 2) / (stars.scale.x))) * 45.0f), (float)window_size.x / (float)window_size.y, 0.1f, 1000000.0f);
+			view = glm::lookAt(eye_position, eye_direction, up);
+			old_eye_position = eye_position;
+			//// LOAD GLOBAL HANDLES
+			view_mat_handle.load();
+			proj_mat_handle.load();
+			ambient_color_handle.load();
+			//// DRAW
+			graphics_loop();
+			basic_fbo.unbind();
+
+			//// draw normal scene
+			programs.load_program(3);
+			//glow_fbo.bind();
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			glClearColor(0.0f, 0.0f, 0.0f, 1.);
+			projection = glm::perspective(glm::radians(60.0f), 1.0f, 0.1f, 1000000.0f);
+			view = glm::lookAt(glm::vec3(-0.866, 0, 0), glm::vec3(), glm::vec3(0, 1, 0));
+			//// LOAD GLOBAL HANDLES
+			glow_view_mat_handle.load();
+			glow_proj_mat_handle.load();
+			glow_res_handle.load(glm::vec3(10/window_size.x, 10/window_size.y, 10));
+			//// DRAW
+			screen_texture.setTex(basic_fbo.tex);
+			screen_texture.draw(0, &glow_model_mat_handle, &glow_texture_handle, nullptr, nullptr);
+			glow_fbo.unbind();
+		}
+		else
 		{
-			glActiveTexture(GL_TEXTURE0 + screen_texs[i]);
-			glBindTexture(GL_TEXTURE_2D, GL_TEXTURE0);
+			//// draw normal scene
+			programs.load_program(1);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			glClearColor(0.0f, 0.0f, 0.0f, 1.);
+			projection = glm::perspective(glm::radians((1 / sqrt(1 - pow(glm::length(eye_position - old_eye_position), 2) / (stars.scale.x))) * 45.0f), (float)window_size.x / (float)window_size.y, 0.1f, 1000000.0f);
+			view = glm::lookAt(eye_position, eye_direction, up);
+			old_eye_position = eye_position;
+			//// LOAD GLOBAL HANDLES
+			view_mat_handle.load();
+			proj_mat_handle.load();
+			ambient_color_handle.load();
+			//// DRAW
+			graphics_loop();
 		}
-		glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-
-
-		//programs.load_program(2);
-		////// Set the list of draw buffers.
-		//GLenum DrawBuffers3[1] = { GL_BACK_LEFT };
-		//glDrawBuffers(1, DrawBuffers3); // "1" is the size of DrawBuffers
-
-		////Clear color buffer  
-		//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		//// set clear color
-		//glClearColor(0.0f, 0.0f, 0.0f, 1.);
-		//
-		//projection = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 1000000.0f);
-		//view = glm::lookAt(glm::vec3(-1,0,0), glm::vec3(), glm::vec3(0,1,0));
-
-		////// LOAD GLOBAL HANDLES
-		//view_mat_handle.load();
-		//proj_mat_handle.load();
-
-		//screen_texture.setTex(motionblurFrame_tex);
-		//screen_texture.draw(0, &model_mat_handle, &texture_handle, nullptr,nullptr);
-
-		current_frame++;
-		current_frame %= MOTION_L;// INT32_MAX;
-
-		//printf("%i\n", current_frame);
 
 		//Swap buffers  
 		glfwSwapBuffers(window);

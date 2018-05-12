@@ -313,6 +313,7 @@
   <ItemGroup>
     <ClInclude Include="colors.h" />
     <ClInclude Include="cwk3.h" />
+    <ClInclude Include="fbo.h" />
     <ClInclude Include="glm.h" />
     <ClInclude Include="glslprogram.h" />
     <ClInclude Include="include\bullet_include_only_one\bullet_basic\btBulletCollisionCommon.h" />
@@ -563,12 +564,14 @@
     <None Include="shaders\basic.vert" />
     <None Include="shaders\basic_texture.frag" />
     <None Include="shaders\basic_texture.vert" />
+    <None Include="shaders\basic_texture_glow.frag" />
     <None Include="shaders\complex.frag" />
     <None Include="shaders\complex.vert" />
     <None Include="shaders\complex2.frag" />
     <None Include="shaders\complex2.vert" />
     <None Include="shaders\phong.frag" />
     <None Include="shaders\phong.vert" />
+    <None Include="shaders\render_to_texture _glow.frag" />
     <None Include="shaders\render_to_texture.frag" />
     <None Include="shaders\render_to_texture.vert" />
     <None Include="shaders\render_to_texture2.frag" />

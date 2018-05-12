@@ -68,7 +68,7 @@ public:
 	void init(GLuint program)
 	{
 		handle = glGetUniformLocation(program, var_name);
-		printf("Linkning varibale %s -> GLSL PROG: %i\n", var_name, program);
+		printf("Linkning variable %s -> GLSL PROG: %i\n", var_name, program);
 	}
 
 	void load()

@@ -1,5 +1,4 @@
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\vc140.pdb
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btcompoundcompoundcollisionalgorithm.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btcompoundcollisionalgorithm.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btcollisionworldimporter.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btcollisionworld.obj
@@ -19,7 +18,7 @@ c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x6
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btcollisionalgorithm.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btbroadphaseproxy.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btaxissweep3.obj
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btcapsuleshape.obj
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\cwkp.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btbvhtrianglemeshshape.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btboxshape.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btbox2dshape.obj
@@ -39,7 +38,7 @@ c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x6
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btconvexconvexalgorithm.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btconvexconcavecollisionalgorithm.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btconvex2dconvex2dalgorithm.obj
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btscaledbvhtrianglemeshshape.obj
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btcompoundcompoundcollisionalgorithm.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btpolyhedralconvexshape.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btoptimizedbvh.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btmultisphereshape.obj
@@ -59,7 +58,7 @@ c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x6
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btconcaveshape.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btcompoundshape.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btcollisionshape.obj
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\gim_box_set.obj
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btcapsuleshape.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\bttriangleshapeex.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btgimpactshape.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btgimpactquantizedbvh.obj
@@ -79,7 +78,7 @@ c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x6
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btstaticplaneshape.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btsphereshape.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btshapehull.obj
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btgearconstraint.obj
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btscaledbvhtrianglemeshshape.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btfixedconstraint.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btcontactconstraint.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btconetwistconstraint.obj
@@ -99,7 +98,7 @@ c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x6
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\gim_tri_collision.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\gim_memory.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\gim_contact.obj
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btmultibodyconstraintsolver.obj
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\gim_box_set.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btmultibodyconstraint.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btmultibody.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btsimulationislandmanagermt.obj
@@ -119,7 +118,7 @@ c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x6
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btgeneric6dofspringconstraint.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btgeneric6dofspring2constraint.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btgeneric6dofconstraint.obj
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btserializer64.obj
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btgearconstraint.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btserializer.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btquickprof.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btpolardecomposition.obj
@@ -139,13 +138,15 @@ c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x6
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btmultibodygearconstraint.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btmultibodyfixedconstraint.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btmultibodydynamicsworld.obj
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btmultibodyconstraintsolver.obj
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\obj.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\main.obj
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\load_image.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\tiny_obj_loader.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btvector3.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btthreads.obj
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\load_image.obj
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\cwkp.obj
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\obj.obj
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\btserializer64.obj
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\x64\release\cwk3.obj
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\x64\release\comp3214_cwk3.exe
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\x64\release\comp3214_cwk3.ipdb
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\x64\release\comp3214_cwk3.iobj

@@ -34,6 +34,9 @@
     <Filter Include="shaders">
       <UniqueIdentifier>{6b0fc700-a7a3-456b-97ac-d01fcbd92f32}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\custom_gl">
+      <UniqueIdentifier>{1ec46fe4-3525-404d-8e5e-a02283b3f703}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -1181,31 +1184,10 @@
     <ClInclude Include="include\tiny_object_loader\tiny_obj_loader.h">
       <Filter>Header Files\tiny_obj_loader</Filter>
     </ClInclude>
-    <ClInclude Include="colors.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="glm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="glslprogram.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="light.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="load_image.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Obj.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="opengl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="varhandle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vertex.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cwk3.h">
@@ -1216,6 +1198,30 @@
     </ClInclude>
     <ClInclude Include="perlin.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="colors.h">
+      <Filter>Header Files\custom_gl</Filter>
+    </ClInclude>
+    <ClInclude Include="fbo.h">
+      <Filter>Header Files\custom_gl</Filter>
+    </ClInclude>
+    <ClInclude Include="glslprogram.h">
+      <Filter>Header Files\custom_gl</Filter>
+    </ClInclude>
+    <ClInclude Include="light.h">
+      <Filter>Header Files\custom_gl</Filter>
+    </ClInclude>
+    <ClInclude Include="load_image.h">
+      <Filter>Header Files\custom_gl</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj.h">
+      <Filter>Header Files\custom_gl</Filter>
+    </ClInclude>
+    <ClInclude Include="varhandle.h">
+      <Filter>Header Files\custom_gl</Filter>
+    </ClInclude>
+    <ClInclude Include="vertex.h">
+      <Filter>Header Files\custom_gl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1256,6 +1262,12 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="shaders\render_to_texture2.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\basic_texture_glow.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\render_to_texture _glow.frag">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>

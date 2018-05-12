@@ -39,6 +39,12 @@ std::vector<glm::vec2>			generate_polar_uvs(std::vector<glm::vec3> v);
 std::vector<glm::vec2>			generate_sphereical_uvs(std::vector<glm::vec3> v);
 std::vector<glm::vec2>			generate_repeated_rect_uvs(std::vector<glm::vec3> v);
 std::vector<glm::vec3>			generate_colour_buffer(glm::vec3 colour, int n);
+std::vector<glm::vec3>			generate_terrain_sphere(std::vector<glm::vec3> v, std::vector<glm::vec3> m);
+std::vector<glm::vec3>			generate_square_mesh(int w, int h);
+std::vector<glm::vec3>	*		generate_terrain(std::vector<glm::vec3> * v, int w, int h, float variation, float flattness);
+std::vector<glm::vec3>			generate_terrian_colour(std::vector<glm::vec3> v, float max_height);
+std::vector<glm::vec3>			generate_water_colour(std::vector<glm::vec3> v);
+std::vector<glm::vec3>			pre_rotate(std::vector<glm::vec3> v, glm::vec3 rotate);
 std::vector<glm::vec3>			random_colour_buffer(glm::vec3 max, int n);
 std::vector<glm::vec3>			random_intesity_colour_buffer(glm::vec3 colour, int n);
 
