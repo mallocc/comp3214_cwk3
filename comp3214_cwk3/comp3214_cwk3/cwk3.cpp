@@ -552,6 +552,25 @@ void			init()
 }
 
 
+glm::mat4 getOrtho()
+{
+	return glm::perspective(glm::radians(60.0f), 1.0f, 0.1f, 1000000.0f);
+}
+glm::mat4 getOrthoView()
+{
+	return glm::lookAt(glm::vec3(-0.866, 0, 0), glm::vec3(), glm::vec3(0, 1, 0));
+}
+glm::mat4 getPerspective()
+{
+	glm::mat4 p = glm::perspective(glm::radians((1 / sqrt(1 - pow(glm::length(eye_position - old_eye_position), 2) / (stars.scale.x))) * 45.0f), (float)window_size.x / (float)window_size.y, 0.1f, 1000000.0f);
+	old_eye_position = eye_position;
+	return p;
+}
+glm::mat4 getperspectiveView()
+{
+	return glm::lookAt(eye_position, eye_direction, up);
+}
+
 //GL graphics loop
 void			glLoop(void(*graphics_loop)(), GLFWwindow * window)
 {
@@ -564,32 +583,46 @@ void			glLoop(void(*graphics_loop)(), GLFWwindow * window)
 		// start clock for this tick
 		auto start = std::chrono::high_resolution_clock::now();
 
-		if (MOTIONBLUR_ON)
+		if (MOTIONBLUR_ON && GLOW_ON)
 		{
-			//// render normal scene to FBO
+			//// draw normal scene
 			programs.load_program(1);
-			motion_blur_parts[current_frame].bind();
+			basic_fbo.bind();
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glClearColor(0.0f, 0.0f, 0.0f, 1.);
-			projection = glm::perspective(glm::radians((1 / sqrt(1 - pow(glm::length(eye_position - old_eye_position), 2) / (stars.scale.x))) * 45.0f), (float)window_size.x / (float)window_size.y, 0.1f, 1000000.0f);
-			view = glm::lookAt(eye_position, eye_direction, up);
-			old_eye_position = eye_position;
+			view = getperspectiveView();
+			projection = getPerspective();			
 			//// LOAD GLOBAL HANDLES
 			view_mat_handle.load();
 			proj_mat_handle.load();
 			ambient_color_handle.load();
 			//// DRAW
 			graphics_loop();
-			motion_blur_parts[current_frame].unbind();			
-			
+			basic_fbo.unbind();
+
+			//// render normal scene to FBO
+			programs.load_program(3);
+			motion_blur_parts[current_frame].bind();
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			glClearColor(0.0f, 0.0f, 0.0f, 1.);
+			view = getOrthoView();
+			projection = getOrtho();
+			//// LOAD GLOBAL HANDLES
+			glow_view_mat_handle.load();
+			glow_proj_mat_handle.load();
+			glow_res_handle.load(glm::vec3(2 / window_size.x, 2 / window_size.y, 10));
+			//// DRAW
+			screen_texture.setTex(basic_fbo.tex);
+			screen_texture.draw(0, &glow_model_mat_handle, &glow_texture_handle, nullptr, nullptr);
+			motion_blur_parts[current_frame].unbind();					
 			
 			//// draw FBO from normal scene
 			programs.load_program(2);
 			//motion_blur_fbo.bind();
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glClearColor(0.0f, 0.0f, 0.0f, 1.);
-			projection = glm::perspective(glm::radians(60.0f), 1.0f, 0.1f, 1000000.0f);
-			view = glm::lookAt(glm::vec3(-0.866, 0, 0), glm::vec3(), glm::vec3(0, 1, 0));
+			view = getOrthoView();
+			projection = getOrtho();
 			//// LOAD GLOBAL HANDLES
 			motion_view_mat_handle.load();
 			motion_proj_mat_handle.load();
@@ -608,12 +641,59 @@ void			glLoop(void(*graphics_loop)(), GLFWwindow * window)
 				glActiveTexture(GL_TEXTURE0 + motion_blur_parts[i].tex);
 				glBindTexture(GL_TEXTURE_2D, GL_TEXTURE0);
 			}
-			motion_blur_fbo.unbind();
+			//motion_blur_fbo.unbind();
+
+			current_frame++;
+			current_frame %= MOTION_L;// INT32_MAX;
+
+			
+
+		}
+		else if (MOTIONBLUR_ON)
+		{
+			//// render normal scene to FBO
+			programs.load_program(1);
+			motion_blur_parts[current_frame].bind();
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			glClearColor(0.0f, 0.0f, 0.0f, 1.);
+			view = getperspectiveView();
+			projection = getPerspective();
+			//// LOAD GLOBAL HANDLES
+			view_mat_handle.load();
+			proj_mat_handle.load();
+			ambient_color_handle.load();
+			//// DRAW
+			graphics_loop();
+			motion_blur_parts[current_frame].unbind();
+
+			//// draw FBO from normal scene
+			programs.load_program(2);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			glClearColor(0.0f, 0.0f, 0.0f, 1.);
+			view = getOrthoView();
+			projection = getOrtho();
+			//// LOAD GLOBAL HANDLES
+			motion_view_mat_handle.load();
+			motion_proj_mat_handle.load();
+			current_frame_handle.load();
+			motion_length_handle.load();
+			//// DRAW
+			for (int i = 0; i < MOTION_L; ++i)
+			{
+				motion_handles[i].load(motion_blur_parts[i].tex);
+				glActiveTexture(GL_TEXTURE0 + motion_blur_parts[i].tex);
+				glBindTexture(GL_TEXTURE_2D, motion_blur_parts[i].tex);
+			}
+			screen_texture.draw(0, &motion_model_mat_handle, &motion_texture_handle, nullptr, nullptr);
+			for (int i = 0; i < MOTION_L; ++i)
+			{
+				glActiveTexture(GL_TEXTURE0 + motion_blur_parts[i].tex);
+				glBindTexture(GL_TEXTURE_2D, GL_TEXTURE0);
+			}
 
 			current_frame++;
 			current_frame %= MOTION_L;// INT32_MAX;
 		}
-
 		else if (GLOW_ON)
 		{			
 			//// draw normal scene
@@ -621,9 +701,8 @@ void			glLoop(void(*graphics_loop)(), GLFWwindow * window)
 			basic_fbo.bind();
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glClearColor(0.0f, 0.0f, 0.0f, 1.);
-			projection = glm::perspective(glm::radians((1 / sqrt(1 - pow(glm::length(eye_position - old_eye_position), 2) / (stars.scale.x))) * 45.0f), (float)window_size.x / (float)window_size.y, 0.1f, 1000000.0f);
-			view = glm::lookAt(eye_position, eye_direction, up);
-			old_eye_position = eye_position;
+			view = getperspectiveView();
+			projection = getPerspective();
 			//// LOAD GLOBAL HANDLES
 			view_mat_handle.load();
 			proj_mat_handle.load();
@@ -634,19 +713,17 @@ void			glLoop(void(*graphics_loop)(), GLFWwindow * window)
 
 			//// draw normal scene
 			programs.load_program(3);
-			//glow_fbo.bind();
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glClearColor(0.0f, 0.0f, 0.0f, 1.);
-			projection = glm::perspective(glm::radians(60.0f), 1.0f, 0.1f, 1000000.0f);
-			view = glm::lookAt(glm::vec3(-0.866, 0, 0), glm::vec3(), glm::vec3(0, 1, 0));
+			view = getOrthoView();
+			projection = getOrtho();
 			//// LOAD GLOBAL HANDLES
 			glow_view_mat_handle.load();
 			glow_proj_mat_handle.load();
-			glow_res_handle.load(glm::vec3(10/window_size.x, 10/window_size.y, 10));
+			glow_res_handle.load(glm::vec3(2/window_size.x, 2/window_size.y, 10));
 			//// DRAW
 			screen_texture.setTex(basic_fbo.tex);
 			screen_texture.draw(0, &glow_model_mat_handle, &glow_texture_handle, nullptr, nullptr);
-			glow_fbo.unbind();
 		}
 		else
 		{
@@ -654,9 +731,8 @@ void			glLoop(void(*graphics_loop)(), GLFWwindow * window)
 			programs.load_program(1);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glClearColor(0.0f, 0.0f, 0.0f, 1.);
-			projection = glm::perspective(glm::radians((1 / sqrt(1 - pow(glm::length(eye_position - old_eye_position), 2) / (stars.scale.x))) * 45.0f), (float)window_size.x / (float)window_size.y, 0.1f, 1000000.0f);
-			view = glm::lookAt(eye_position, eye_direction, up);
-			old_eye_position = eye_position;
+			view = getperspectiveView();
+			projection = getPerspective();
 			//// LOAD GLOBAL HANDLES
 			view_mat_handle.load();
 			proj_mat_handle.load();

@@ -30,12 +30,12 @@ cwk3.cpp(524): warning C4244: 'argument': conversion from 'float' to 'int', poss
 cwk3.cpp(525): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 cwk3.cpp(526): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 cwk3.cpp(528): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-cwk3.cpp(675): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-cwk3.cpp(717): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+cwk3.cpp(751): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+cwk3.cpp(793): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Generating code
-  770 of 6204 functions (12.4%) were compiled, the rest were copied from previous compilation.
-    3 functions were new in current compilation
-    115 functions had inline decision re-evaluated but remain unchanged
+  770 of 6208 functions (12.4%) were compiled, the rest were copied from previous compilation.
+    4 functions were new in current compilation
+    127 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   comp3214_cwk3.vcxproj -> C:\Users\hercu\CloudStation\GitShit\comp3214_cwk3\comp3214_cwk3\x64\Release\comp3214_cwk3.exe
   comp3214_cwk3.vcxproj -> C:\Users\hercu\CloudStation\GitShit\comp3214_cwk3\comp3214_cwk3\x64\Release\comp3214_cwk3.pdb (Full PDB)
