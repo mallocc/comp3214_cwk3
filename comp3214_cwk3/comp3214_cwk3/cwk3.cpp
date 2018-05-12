@@ -85,10 +85,17 @@ bool MOTIONBLUR_ON = 0;
 bool GLOW_ON = 0;
 
 
+
+
 //Returns random float
 inline float		randf()
 {
 	return static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+}
+
+void printV(glm::vec3 v)
+{
+	printf("x: %f - y: %f - z: %f\n", v.x, v.y, v.z);
 }
 
 //Error callback  
@@ -97,6 +104,8 @@ static void		error_callback(int error, const char* description)
 	fputs(description, stderr);
 	_fgetchar();
 }
+
+
 
 
 void transition_scene(int destiniation_scene, glm::vec3 current_position, glm::vec3 current_direction, glm::vec3 current_up, glm::vec3 current_fov)
@@ -148,11 +157,6 @@ static void		key_callback(GLFWwindow* window, int key, int scancode, int action,
 	}
 }
 
-void printV(glm::vec3 v)
-{
-	printf("x: %f - y: %f - z: %f\n", v.x, v.y, v.z);
-}
-
 void update_camera(int scene)
 {
 	cameraSequences[scene].lerpStepSmooth();
@@ -163,18 +167,7 @@ void update_camera(int scene)
 
 void loop()
 {
-	//lights.pos = glm::quat(glm::vec3(0, 0.005f, 0)) * lights.pos;
-	//eye_position = glm::quat(glm::vec3(0, 0.001f, 0)) * eye_position;
-
-	//printV(eye_position);
-
-	//sphere.theta += 0.0001f;
-	//water_sphere.theta += 0.0001f;
-
-
-
 	//// DRAW OBJECTS
-
 	terrain.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
 	water.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
 	sphere.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
@@ -185,12 +178,7 @@ void loop()
 	falcon.draw(1, &model_mat_handle, &texture_handle, nullptr, nullptr);
 	//container.draw(1, &model_mat_handle, nullptr, nullptr, nullptr);
 
-	//printf("%f  %f  %f\n", sphere.pos.x,sphere.pos.y,sphere.pos.z);
-
-	//eye_direction = sphere.pos;
-
-
-	//orbit
+	//orbits
 	falcon.pos = glm::quat(glm::vec3(0, 0.0001f, 0)) * falcon.pos;
 	moon.pos = glm::quat(glm::vec3(0, -0.0001f, 0)) * moon.pos;
 	
@@ -217,10 +205,11 @@ void loop()
 		break;
 	default:
 		break;
-	}
-
-	
+	}	
 }
+
+
+
 
 void init_camera_tour()
 {
@@ -421,7 +410,6 @@ void init_objects()
 	stars.scale *= 500000;
 }
 
-//Initilise custom objects
 void			init()
 {
 
@@ -550,6 +538,8 @@ void			init()
 
 	init_camera_tour();
 }
+
+
 
 
 glm::mat4 getOrtho()
