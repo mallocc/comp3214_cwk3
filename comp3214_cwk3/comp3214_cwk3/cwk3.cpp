@@ -586,10 +586,14 @@ void			glLoop(void(*graphics_loop)(), GLFWwindow * window)
 		if (MOTIONBLUR_ON && GLOW_ON)
 		{
 			//// draw normal scene
+			// load basic shader
 			programs.load_program(1);
+			// bind basic fbo to render to
 			basic_fbo.bind();
+			// clear screen
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glClearColor(0.0f, 0.0f, 0.0f, 1.);
+			// update view and proj matrices
 			view = getperspectiveView();
 			projection = getPerspective();			
 			//// LOAD GLOBAL HANDLES
@@ -598,55 +602,68 @@ void			glLoop(void(*graphics_loop)(), GLFWwindow * window)
 			ambient_color_handle.load();
 			//// DRAW
 			graphics_loop();
+			//unbind the fbo
 			basic_fbo.unbind();
 
 			//// render normal scene to FBO
+			// load glow shader
 			programs.load_program(3);
+			// bind motionblur part fbo to render
 			motion_blur_parts[current_frame].bind();
+			// clear screen
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glClearColor(0.0f, 0.0f, 0.0f, 1.);
+			// update view and proj matrices
 			view = getOrthoView();
 			projection = getOrtho();
 			//// LOAD GLOBAL HANDLES
 			glow_view_mat_handle.load();
 			glow_proj_mat_handle.load();
+			// set glow parameters
 			glow_res_handle.load(glm::vec3(2 / window_size.x, 2 / window_size.y, 10));
-			//// DRAW
+			//// DRAW		
+			// setting obj texture to be from the basic fbo
 			screen_texture.setTex(basic_fbo.tex);
+			// drawing texture onto a square mesh
 			screen_texture.draw(0, &glow_model_mat_handle, &glow_texture_handle, nullptr, nullptr);
+			// unbind motionblur part fbo
 			motion_blur_parts[current_frame].unbind();					
 			
 			//// draw FBO from normal scene
+			// load motionblur accumulator shader
 			programs.load_program(2);
-			//motion_blur_fbo.bind();
+			// clear screen
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glClearColor(0.0f, 0.0f, 0.0f, 1.);
+			// update view and proj matrices
 			view = getOrthoView();
 			projection = getOrtho();
 			//// LOAD GLOBAL HANDLES
 			motion_view_mat_handle.load();
 			motion_proj_mat_handle.load();
+			// setting parameters
 			current_frame_handle.load();
 			motion_length_handle.load();
 			//// DRAW
+			// bind each texture seperately
 			for (int i = 0; i < MOTION_L; ++i)
 			{
 				motion_handles[i].load(motion_blur_parts[i].tex);
 				glActiveTexture(GL_TEXTURE0 + motion_blur_parts[i].tex);
 				glBindTexture(GL_TEXTURE_2D, motion_blur_parts[i].tex);
 			}
+			// draw texture to square mesh
 			screen_texture.draw(0, &motion_model_mat_handle, &motion_texture_handle, nullptr, nullptr);
+			// unbind each texture seperately
 			for (int i = 0; i < MOTION_L; ++i)
 			{
 				glActiveTexture(GL_TEXTURE0 + motion_blur_parts[i].tex);
 				glBindTexture(GL_TEXTURE_2D, GL_TEXTURE0);
 			}
-			//motion_blur_fbo.unbind();
 
+			// update current frame for the motionblur
 			current_frame++;
-			current_frame %= MOTION_L;// INT32_MAX;
-
-			
+			current_frame %= MOTION_L;// INT32_MAX;			
 
 		}
 		else if (MOTIONBLUR_ON)
@@ -835,20 +852,5 @@ GLFWwindow *				initWindow()
 
 void run_cwk()
 {
-	
-	//float step_lats = glm::radians(360.0f) / float(25);
-	//float step_longs = glm::radians(360.0f) / float(25);
-	//float Radius = 1., x, y, z;
-	//if(false)
-	//for (float a = 0; a <= glm::radians(360.0f); a += step_lats)
-	//{
-	//	for (float b = 0; b <= glm::radians(360.0f); b += step_longs)
-	//	{
-	//		printf("%f %f : ", a, b);
-	//		printV(polar_cart(a, b));
-	//	}
-	//	printf("\n");
-	//}
-
 	glLoop(loop, initWindow());	
 }
