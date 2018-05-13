@@ -73,7 +73,7 @@ std::vector<Vertex>				pack_object(
 
 struct Obj
 {
-private:
+public:
 
 	GLuint 
 		vao, 
@@ -105,13 +105,16 @@ private:
 		const char *heightfilename
 	);
 
-public:
+
 	glm::vec3
 		rotation = glm::vec3(0, 1, 0),
+		pre_rotation = glm::vec3(0, 1, 0),
 		scale = glm::vec3(1, 1, 1), 
 		pos;
 	GLfloat 
-		theta;
+		theta,
+		pre_theta;
+
 
 
 	Obj() {}
@@ -163,6 +166,18 @@ public:
 		glm::vec3 _pos,
 		glm::vec3 _rotation,
 		GLfloat _theta,
+		glm::vec3 _scale
+	); 
+	Obj::Obj(
+		const char *texfilename,
+		const char *normfilename,
+		const char *heightfilename,
+		std::vector<Vertex>	data,
+		glm::vec3 _pos,
+		glm::vec3 _rotation,
+		GLfloat _theta,
+		glm::vec3 _pre_rotation,
+		GLfloat _pre_theta,
 		glm::vec3 _scale
 	);
 

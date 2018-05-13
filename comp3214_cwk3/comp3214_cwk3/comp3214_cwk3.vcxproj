@@ -565,6 +565,7 @@
     <None Include="shaders\basic_texture.frag" />
     <None Include="shaders\basic_texture.vert" />
     <None Include="shaders\basic_texture_glow.frag" />
+    <None Include="shaders\blueshift.frag" />
     <None Include="shaders\complex.frag" />
     <None Include="shaders\complex.vert" />
     <None Include="shaders\complex2.frag" />

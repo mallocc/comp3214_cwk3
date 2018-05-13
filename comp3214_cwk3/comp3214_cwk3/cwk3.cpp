@@ -33,7 +33,13 @@ glow_model_mat_handle,
 glow_view_mat_handle,
 glow_proj_mat_handle,
 glow_texture_handle,
-glow_res_handle
+glow_res_handle,
+
+shift_model_mat_handle,
+shift_view_mat_handle,
+shift_proj_mat_handle,
+shift_texture_handle,
+shift_handle
 	;
 
 glm::vec2
@@ -58,10 +64,12 @@ FBO
 	motion_blur_fbo,
 	glow_fbo,
 	basic_fbo,
+	shift_fbo,
 	combined_fbo;
 
 Obj
-terrain, container, sphere, water, water_sphere, falcon,
+terrain, water, falcon, 
+earth,  mars, venus, mercury, neptune, uranus, saturn, jupiter,
 star, moon, stars,
 screen_texture;
 
@@ -77,15 +85,18 @@ int l = MOTION_L;
 #define SCENE_2 2
 #define SCENE_3 3
 #define SCENE_4 4
+#define SCENE_N 5
 
 int scene = SCENE_1;
 int next_scene = 0;
 
 bool MOTIONBLUR_ON = 0;
-bool GLOW_ON = 0;
+bool GLOW_ON = 1;
+bool EFFECTS = 1;
+float lorentz = 1;
 
-
-
+float step_d = 0.0005f;
+float step = step_d;
 
 //Returns random float
 inline float		randf()
@@ -110,14 +121,18 @@ static void		error_callback(int error, const char* description)
 
 void transition_scene(int destiniation_scene, glm::vec3 current_position, glm::vec3 current_direction, glm::vec3 current_up, glm::vec3 current_fov)
 {
+	cameraSequences[scene].reset();
 	next_scene = destiniation_scene;
+	next_scene %= SCENE_4;
+	if (next_scene == SCENE_0)
+		next_scene = SCENE_1;
 	scene = SCENE_0;
 	cameraSequences[SCENE_0] = CameraSequencer(
 		current_position, cameraSequences[destiniation_scene].sequence.front().getStart(), 
 		current_direction, cameraSequences[destiniation_scene].directions.front().getStart(),
 		current_up, cameraSequences[destiniation_scene].ups.front().getStart(),
 		current_fov, cameraSequences[destiniation_scene].others.front().getStart(),
-		0.001, 0.1);
+		0.001, 0.0);
 }
 
 static void		key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -129,10 +144,13 @@ static void		key_callback(GLFWwindow* window, int key, int scancode, int action,
 		case GLFW_KEY_ENTER:
 			break;
 		case GLFW_KEY_UP:
-			eye_position += eye_position * 0.1f;
+			//eye_position += eye_position * 0.1f;
+			step += step_d;
 			break;
 		case GLFW_KEY_DOWN:
-			eye_position -= eye_position * 0.1f;
+			//eye_position -= eye_position * 0.1f;
+			step -= step_d;
+			step = max(step, 0);
 			break;
 		case GLFW_KEY_RIGHT:
 			eye_position = glm::quat(glm::vec3(0, glm::radians(3.0f), 0)) * eye_position;
@@ -149,6 +167,10 @@ static void		key_callback(GLFWwindow* window, int key, int scancode, int action,
 		case GLFW_KEY_G:
 			GLOW_ON = !GLOW_ON;
 			break;
+		case GLFW_KEY_E:
+			EFFECTS = !EFFECTS;
+			break;
+
 		case GLFW_KEY_ESCAPE:
 		case GLFW_KEY_Q:
 			glfwSetWindowShouldClose(window, GL_TRUE);
@@ -157,9 +179,9 @@ static void		key_callback(GLFWwindow* window, int key, int scancode, int action,
 	}
 }
 
-void update_camera(int scene)
+void update_camera(int scene, float step)
 {
-	cameraSequences[scene].lerpStepSmooth();
+	cameraSequences[scene].lerpStepSmooth(step);
 	eye_position = cameraSequences[scene].currentPosition;
 	eye_direction = cameraSequences[scene].currentDirection;
 	up = cameraSequences[scene].currentUp;
@@ -167,41 +189,55 @@ void update_camera(int scene)
 
 void loop()
 {
+
 	//// DRAW OBJECTS
-	terrain.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
-	water.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
-	sphere.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
-	star.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
+	//terrain.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
+	//water.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
+	//falcon.draw(1, &model_mat_handle, &texture_handle, nullptr, nullptr);
+	//printf("%i\n", stars.tex);
 	stars.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
+	star.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
+
+	earth.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
 	moon.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
-	//water_sphere.draw(0, &model_mat_handle, nullptr, nullptr, nullptr);
-	falcon.draw(1, &model_mat_handle, &texture_handle, nullptr, nullptr);
-	//container.draw(1, &model_mat_handle, nullptr, nullptr, nullptr);
+	mars.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
+	venus.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
+	mercury.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
+	jupiter.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
+	saturn.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
+	uranus.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
+	neptune.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
+	
+	earth.theta += 0.001f;
+	mars.theta += 0.001f;
+	star.theta += 0.001f;
+	neptune.theta += 0.001f;
+
 
 	//orbits
-	falcon.pos = glm::quat(glm::vec3(0, 0.0001f, 0)) * falcon.pos;
-	moon.pos = glm::quat(glm::vec3(0, -0.0001f, 0)) * moon.pos;
+	falcon.pos = glm::quat(glm::vec3(0, 0.0001f, 0)) * (falcon.pos-earth.pos) + earth.pos;
+	moon.pos = glm::quat(glm::vec3(0, -0.0001f, 0)) * (moon.pos-earth.pos) + earth.pos;
 	
 	switch (scene)
 	{
 	case SCENE_0:
-		update_camera(SCENE_0);
+		update_camera(SCENE_0, step);
 		if (cameraSequences[SCENE_0].isFinished())
 			scene = next_scene;
 		break;
 	case SCENE_1:
-		eye_position = falcon.pos + glm::vec3(-0.1, 0.01, 0);
-		eye_direction = falcon.pos;
-		//update_camera(SCENE_1);
+		//eye_position = falcon.pos + glm::vec3(-0.1, 0.01, 0);
+		//eye_direction = falcon.pos;
+		update_camera(SCENE_1, step);
 		break;
 	case SCENE_2:
-		update_camera(SCENE_2);
+		update_camera(SCENE_2, step);
 		break;
 	case SCENE_3:
-		update_camera(SCENE_3);
+		update_camera(SCENE_3, step);
 		break;
 	case SCENE_4:
-		update_camera(SCENE_4);
+		update_camera(SCENE_4, step);
 		break;
 	default:
 		break;
@@ -217,12 +253,20 @@ void init_camera_tour()
 	cameraSequences.push_back(CameraSequencer());
 	//scene1
 	cameraSequences.push_back(CameraSequencer(
-		glm::vec3(), glm::vec3(),
-		glm::vec3(), glm::vec3(),
-		glm::vec3(0,1,0), glm::vec3(0,1,0),
+		neptune.pos + glm::vec3(200, 0, 0), neptune.pos + glm::vec3(300, 0, 200),
+		neptune.pos, mars.pos,
+		glm::vec3(0,1,1), glm::vec3(0,1,1),
 		glm::vec3(45.0f,0,0), glm::vec3(45.0f, 0, 0),
-		0.005,0.1
+		step,0.0
 	));
+
+	cameraSequences[SCENE_1].addLerper(mars.pos + glm::vec3(300, 0, 0), mars.pos, glm::vec3(0, 1, 0), 0.001, 0);
+	cameraSequences[SCENE_1].addLerper(mars.pos + glm::vec3(1000, 0, 500), star.pos, glm::vec3(0, 1, 0), 0.001, 0);
+	cameraSequences[SCENE_1].addLerper(star.pos + glm::vec3(2000, 0, -1000), star.pos, glm::vec3(0, 1, 0), 0.001, 0);
+
+	cameraSequences[SCENE_1].addLerper(star.pos + glm::vec3(-1000, 0, -1500), mars.pos, glm::vec3(0, 1, 0), 0.001, 0);
+	cameraSequences[SCENE_1].addLerper(mars.pos + glm::vec3(-300, 0, 0), mars.pos, glm::vec3(0, 1, 0), 0.001, 0);
+
 	//scene2
 	cameraSequences.push_back(CameraSequencer(
 		terrain_pos + glm::vec3(0,0,0.05), terrain_pos + glm::vec3(0, 0, 0.05), 
@@ -231,9 +275,6 @@ void init_camera_tour()
 		glm::vec3(45.0f, 0, 0), glm::vec3(45.0f, 0, 0),
 		0.005, 0.1
 	));
-	cameraSequences[SCENE_2].addLerper(terrain_pos + glm::vec3(0, 0, 1), terrain_pos + glm::vec3(1, 0, 0.04), glm::vec3(0, 0, 1),0.005, 0.1);
-	cameraSequences[SCENE_2].addLerper(terrain_pos + glm::vec3(-1, 0, 0.5), terrain_pos + glm::vec3(1, 0, 0.04), glm::vec3(0, 0, 1), 0.005, 0.1);
-	//cameraSequences[SCENE_2].addLerper(terrain_pos + glm::vec3(1, -2, 0.1), terrain_pos + glm::vec3(1, 2, 0.04), glm::vec3(0, 0, 1), glm::vec3(0, 0, 1), 0.005, 0.1);
 
 	//scene3
 	cameraSequences.push_back(CameraSequencer(
@@ -243,27 +284,15 @@ void init_camera_tour()
 		glm::vec3(45.0f, 0, 0), glm::vec3(45.0f, 0, 0),
 		0.005, 0.1
 	));
-	cameraSequences[SCENE_3].addLerper(star.pos + glm::vec3(50000, 50000, 50000), star.pos, glm::vec3(0, 1, 0), 0.001, 0.1);
-	cameraSequences[SCENE_3].addLerper(star.pos + glm::vec3(0, 50000, 0), sphere.pos, glm::vec3(0, 1, 0), 0.001, 0.1);
-	cameraSequences[SCENE_3].addLerper(glm::vec3(-5000, 0, 0), sphere.pos, glm::vec3(0, 1, 0), 0.001, 0.1);
 
 	//scene 4
 	cameraSequences.push_back(CameraSequencer(
-		sphere.pos + glm::vec3(5,0,0), sphere.pos + glm::vec3(5,0,0),
-		sphere.pos, sphere.pos,
+		earth.pos + glm::vec3(5,0,0), earth.pos + glm::vec3(5,0,0),
+		earth.pos, earth.pos,
 		glm::vec3(0, 1, 0), glm::vec3(0, 1, 0),
 		glm::vec3(45.0f, 0, 0), glm::vec3(45.0f, 0, 0),
 		0.005, 0.1
 	));
-
-	cameraSequences[SCENE_4].addLerper(sphere.pos + glm::vec3(randf() * 10 - 5, randf() * 10 - 5, randf() * 10 - 5), sphere.pos, glm::vec3(0, 1, 0), 0.005, 0.1);
-	cameraSequences[SCENE_4].addLerper(sphere.pos + glm::vec3(randf() * 10 - 5, randf() * 10 - 5, randf() * 10 - 5), sphere.pos, glm::vec3(0, 1, 0), 0.005, 0.1);
-	cameraSequences[SCENE_4].addLerper(sphere.pos + glm::vec3(randf() * 10 - 5, randf() * 10 - 5, randf() * 10 - 5), sphere.pos, glm::vec3(0, 1, 0), 0.005, 0.1);
-	cameraSequences[SCENE_4].addLerper(sphere.pos + glm::vec3(randf() * 10 - 5, randf() * 10 - 5, randf() * 10 - 5), sphere.pos, glm::vec3(0, 1, 0), 0.005, 0.1);
-	cameraSequences[SCENE_4].addLerper(sphere.pos + glm::vec3(randf() * 10 - 5, randf() * 10 - 5, randf() * 10 - 5), sphere.pos, glm::vec3(0, 1, 0), 0.005, 0.1);
-	cameraSequences[SCENE_4].addLerper(sphere.pos + glm::vec3(randf() * 10 - 5, randf() * 10 - 5, randf() * 10 - 5), sphere.pos, glm::vec3(0, 1, 0), 0.005, 0.1);
-	cameraSequences[SCENE_4].addLerper(sphere.pos + glm::vec3(randf() * 10 - 5, randf() * 10 - 5, randf() * 10 - 5), sphere.pos, glm::vec3(0, 1, 0), 0.005, 0.1);
-	cameraSequences[SCENE_4].addLerper(sphere.pos + glm::vec3(randf() * 10 - 5, randf() * 10- 5, randf() * 10 - 5), sphere.pos, glm::vec3(0, 1, 0), 0.005, 0.1);
 
 }
 
@@ -279,120 +308,54 @@ void init_objects()
 
 	int res_t = 100;
 
-	v = generate_square_mesh(res_t, res_t);
-	generate_terrain(&v, res_t, res_t, 10.0f, 0.01f);
-	generate_terrain(&v, res_t, res_t, 50.0f, 0.01f);
-	c = generate_terrian_colour(v, 1.0f);
+	//v = generate_square_mesh(res_t, res_t);
+	//generate_terrain(&v, res_t, res_t, 10.0f, 0.01f);
+	//generate_terrain(&v, res_t, res_t, 50.0f, 0.01f);
+	//c = generate_terrian_colour(v, 1.0f);
 
-	terrain = Obj(
-		"", "", "",
-		//"textures/moss_color.jpg",
-		//"textures/moss_norm.jpg",
-		//"textures/moss_height.jpg",
-		pack_object(&v, &c, NULL, NULL, NULL),
-		terrain_pos,
-		glm::vec3(1, 0, 0),
-		glm::radians(90.0f),
-		glm::vec3(1, 1, 1)
-	);
-	terrain.scale *= 5;
+	//terrain = Obj(
+	//	"", "", "",
+	//	//"textures/moss_color.jpg",
+	//	//"textures/moss_norm.jpg",
+	//	//"textures/moss_height.jpg",
+	//	pack_object(&v, &c, NULL, NULL, NULL),
+	//	terrain_pos,
+	//	glm::vec3(1, 0, 0),
+	//	glm::radians(90.0f),
+	//	glm::vec3(1, 1, 1)
+	//);
+	//terrain.scale *= 5;
 
-	v = generate_square_mesh(res_t, res_t);
-	generate_terrain(&v, res_t, res_t, 1000.0f, 0.001f);
-	c = generate_water_colour(v);
+	//v = generate_square_mesh(res_t, res_t);
+	//generate_terrain(&v, res_t, res_t, 1000.0f, 0.001f);
+	//c = generate_water_colour(v);
 
-	water = Obj(
-		"", "", "",
-		//"textures/moss_color.jpg",
-		//"textures/moss_norm.jpg",
-		//"textures/moss_height.jpg",
-		pack_object(&v, &c, NULL, NULL, NULL),
-		terrain_pos,
-		glm::vec3(1, 0, 0),
-		glm::radians(90.0f),
-		glm::vec3(1, 1, 1)
-	);
-	water.scale *= 5;
+	//water = Obj(
+	//	"", "", "",
+	//	//"textures/moss_color.jpg",
+	//	//"textures/moss_norm.jpg",
+	//	//"textures/moss_height.jpg",
+	//	pack_object(&v, &c, NULL, NULL, NULL),
+	//	terrain_pos,
+	//	glm::vec3(1, 0, 0),
+	//	glm::radians(90.0f),
+	//	glm::vec3(1, 1, 1)
+	//);
+	//water.scale *= 5;
 
-	/*v = generate_cube();
 
-	container = Obj(
-	"", "", "",
-	pack_object(&v, GEN_COLOR_RAND, WHITE),
-	glm::vec3(0, 0, 0),
-	glm::vec3(1, 0, 0),
-	glm::radians(0.0f),
-	glm::vec3(1, 1, 1)
-	);;
-	container.scale = glm::vec3(5, 5, 5);*/
+	//falcon = Obj(
+	//	"objects/millenium-falcon.obj",
+	//	RED,
+	//	glm::vec3(0, 0, 1005),
+	//	glm::vec3(1, 0, 0),
+	//	glm::radians(0.0f),
+	//	glm::vec3(1, 1, 1),
+	//	glm::vec3(25, 25, 3000)
+	//);
+	//falcon.scale /= 10000;
 
-	int res = 100;
-
-	v = pre_rotate(generate_sphere(res, res),
-		glm::vec3(90, 0, 0));
-
-	sphere = Obj(
-		"textures/earth.jpg", "", "",
-		//"textures/moss_color.jpg",
-		//"textures/moss_norm.jpg",
-		//"textures/moss_height.jpg",
-		pack_object(&v, GEN_UVS_SPHERE | GEN_NORMS, BLACK),
-		glm::vec3(0, 0, 0),
-		glm::vec3(1, 0, 0),
-		glm::radians(90.0f),
-		glm::vec3(1, 1, 1)
-	);
-	sphere.scale *= 1000;
-
-	water_sphere = Obj(
-		"", "", "",
-		//"textures/moss_color.jpg",
-		//"textures/moss_norm.jpg",
-		//"textures/moss_height.jpg",
-		pack_object(&v, &c, NULL, NULL, NULL),
-		glm::vec3(0, 0, 0),
-		glm::vec3(1, 0, 0),
-		glm::radians(90.0f),
-		glm::vec3(1, 1, 1)
-	);
-	water_sphere.scale *= 1000;
-
-	falcon = Obj(
-		"objects/millenium-falcon.obj",
-		RED,
-		glm::vec3(0, 0, 1005),
-		glm::vec3(1, 0, 0),
-		glm::radians(0.0f),
-		glm::vec3(1, 1, 1),
-		glm::vec3(25, 25, 3000)
-	);
-	falcon.scale /= 10000;
-
-	star = Obj(
-		"textures/sun.jpg", "", "",
-		//"textures/moss_color.jpg",
-		//"textures/moss_norm.jpg",
-		//"textures/moss_height.jpg",
-		pack_object(&v, GEN_UVS_SPHERE | GEN_NORMS, BLACK),
-		glm::vec3(100000, 0, 0),
-		glm::vec3(1, 0, 0),
-		glm::radians(90.0f),
-		glm::vec3(1, 1, 1)
-	);
-	star.scale *= 10000;
-
-	moon = Obj(
-		"textures/moon.jpg", "", "",
-		//"textures/moss_color.jpg",
-		//"textures/moss_norm.jpg",
-		//"textures/moss_height.jpg",
-		pack_object(&v, GEN_UVS_SPHERE | GEN_NORMS, BLACK),
-		glm::vec3(10000, 0, 0),
-		glm::vec3(1, 0, 0),
-		glm::radians(90.0f),
-		glm::vec3(1, 1, 1)
-	);
-	moon.scale *= 1000;
+	int res = 50;
 
 	v = generate_sphere_invert(res, res);
 
@@ -404,10 +367,154 @@ void init_objects()
 		pack_object(&v, GEN_UVS_SPHERE | GEN_NORMS, BLACK),
 		glm::vec3(10000, 0, 0),
 		glm::vec3(1, 0, 0),
+		glm::radians(0.0f),
+		glm::vec3(1, 0, 0),
 		glm::radians(90.0f),
 		glm::vec3(1, 1, 1)
 	);
-	stars.scale *= 500000;
+	stars.scale *= 5000000;
+
+	v = generate_sphere(res, res);
+
+	star = Obj(
+		"textures/sun.jpg", "", "",
+		//"textures/moss_color.jpg",
+		//"textures/moss_norm.jpg",
+		//"textures/moss_height.jpg",
+		pack_object(&v, GEN_UVS_SPHERE | GEN_NORMS, BLACK),
+		glm::vec3(0, 0, 0),
+		glm::vec3(0, 1, 0),
+		glm::radians(0.0f),
+		glm::vec3(1, 0, 0),
+		glm::radians(90.0f),
+		glm::vec3(1, 1, 1) * 1000.0f
+	);
+
+	earth = Obj(
+		"textures/earth.jpg", "", "",
+		//"textures/moss_color.jpg",
+		//"textures/moss_norm.jpg",
+		//"textures/moss_height.jpg",
+		pack_object(&v, GEN_UVS_SPHERE | GEN_NORMS, BLACK),
+		glm::vec3(130000, 0, 0),
+		glm::vec3(0, 1, 0),
+		glm::radians(0.0f),
+		glm::vec3(1, 0, 0),
+		glm::radians(90.0f),
+		glm::vec3(1, 1, 1) * 100.0f
+	);
+
+	moon = Obj(
+		"textures/moon.jpg", "", "",
+		//"textures/moss_color.jpg",
+		//"textures/moss_norm.jpg",
+		//"textures/moss_height.jpg",
+		pack_object(&v, GEN_UVS_SPHERE | GEN_NORMS, BLACK),
+		earth.pos + glm::vec3(0, 0, 25000) * 0.003f,
+		glm::vec3(0, 1, 0),
+		glm::radians(0.0f),
+		glm::vec3(1, 0, 0),
+		glm::radians(90.0f),
+		glm::vec3(1, 1, 1) * earth.scale.x
+	);
+
+	mars = Obj(
+		"textures/mars.jpg", "", "",
+		//"textures/moss_color.jpg",
+		//"textures/moss_norm.jpg",
+		//"textures/moss_height.jpg",
+		pack_object(&v, GEN_UVS_SPHERE | GEN_NORMS, BLACK),
+		earth.pos * 1.52f,
+		glm::vec3(0, 1, 0),
+		glm::radians(0.0f),
+		glm::vec3(1, 0, 0),
+		glm::radians(90.0f),
+		glm::vec3(1, 1, 1) * earth.scale.x
+	);
+
+	venus = Obj(
+		"textures/venus.jpg", "", "",
+		//"textures/moss_color.jpg",
+		//"textures/moss_norm.jpg",
+		//"textures/moss_height.jpg",
+		pack_object(&v, GEN_UVS_SPHERE | GEN_NORMS, BLACK),
+		earth.pos * 0.72f,
+		glm::vec3(0, 1, 0),
+		glm::radians(0.0f),
+		glm::vec3(1, 0, 0),
+		glm::radians(90.0f),
+		glm::vec3(1, 1, 1) * earth.scale.x
+	);
+
+	mercury = Obj(
+		"textures/mercury.jpg", "", "",
+		//"textures/moss_color.jpg",
+		//"textures/moss_norm.jpg",
+		//"textures/moss_height.jpg",
+		pack_object(&v, GEN_UVS_SPHERE | GEN_NORMS, BLACK),
+		earth.pos * 0.39f,
+		glm::vec3(0, 1, 0),
+		glm::radians(0.0f),
+		glm::vec3(1, 0, 0),
+		glm::radians(90.0f),
+		glm::vec3(1, 1, 1) * earth.scale.x
+	);
+
+	jupiter = Obj(
+		"textures/jupiter.jpg", "", "",
+		//"textures/moss_color.jpg",
+		//"textures/moss_norm.jpg",
+		//"textures/moss_height.jpg",
+		pack_object(&v, GEN_UVS_SPHERE | GEN_NORMS, BLACK),
+		earth.pos * 5.2f,
+		glm::vec3(0, 1, 0),
+		glm::radians(0.0f),
+		glm::vec3(1, 0, 0),
+		glm::radians(90.0f),
+		glm::vec3(1, 1, 1) * earth.scale.x
+	);
+
+	saturn = Obj(
+		"textures/saturn.jpg", "", "",
+		//"textures/moss_color.jpg",
+		//"textures/moss_norm.jpg",
+		//"textures/moss_height.jpg",
+		pack_object(&v, GEN_UVS_SPHERE | GEN_NORMS, BLACK),
+		earth.pos * 9.58f,
+		glm::vec3(0, 1, 0),
+		glm::radians(0.0f),
+		glm::vec3(1, 0, 0),
+		glm::radians(90.0f),
+		glm::vec3(1, 1, 1) * earth.scale.x
+	);
+
+	uranus = Obj(
+		"textures/uranus.jpg", "", "",
+		//"textures/moss_color.jpg",
+		//"textures/moss_norm.jpg",
+		//"textures/moss_height.jpg",
+		pack_object(&v, GEN_UVS_SPHERE | GEN_NORMS, BLACK),
+		earth.pos * 19.2f,
+		glm::vec3(0, 1, 0),
+		glm::radians(0.0f),
+		glm::vec3(1, 0, 0),
+		glm::radians(90.0f),
+		glm::vec3(1, 1, 1) * earth.scale.x
+	);
+
+	neptune = Obj(
+		"textures/neptune.jpg", "", "",
+		//"textures/moss_color.jpg",
+		//"textures/moss_norm.jpg",
+		//"textures/moss_height.jpg",
+		pack_object(&v, GEN_UVS_SPHERE | GEN_NORMS, BLACK),
+		earth.pos * 30.0f,
+		glm::vec3(0, 1, 0),
+		glm::radians(0.0f),
+		glm::vec3(1, 0, 0),
+		glm::radians(90.0f),
+		glm::vec3(1, 1, 1) * earth.scale.x
+	);
 }
 
 void			init()
@@ -421,6 +528,7 @@ void			init()
 	programs.add_program("shaders/basic_texture.vert", "shaders/basic_texture.frag");
 	programs.add_program("shaders/render_to_texture.vert", "shaders/render_to_texture.frag");
 	programs.add_program("shaders/basic_texture.vert", "shaders/basic_texture_glow.frag");
+	programs.add_program("shaders/basic_texture.vert", "shaders/blueshift.frag");
 
 
 	//programs.add_program("shaders/phong.vert", "shaders/phong.frag");
@@ -507,8 +615,21 @@ void			init()
 	glow_texture_handle.init(programs.current_program);
 	glow_res_handle = VarHandle("u_glow_res");
 	glow_res_handle.init(programs.current_program);
+
+	programs.load_program(4);
+	shift_model_mat_handle = VarHandle("u_m", &model);
+	shift_model_mat_handle.init(programs.current_program);
+	shift_view_mat_handle = VarHandle("u_v", &view);
+	shift_view_mat_handle.init(programs.current_program);
+	shift_proj_mat_handle = VarHandle("u_p", &projection);
+	shift_proj_mat_handle.init(programs.current_program);
+	shift_texture_handle = VarHandle("u_tex");
+	shift_texture_handle.init(programs.current_program);
+	shift_handle = VarHandle("u_shift");
+	shift_handle.init(programs.current_program);
 	
 	basic_fbo = FBO(window_size.x, window_size.y);
+	shift_fbo = FBO(window_size.x, window_size.y);
 	glow_fbo = FBO(window_size.x, window_size.y);
 	motion_blur_fbo = FBO(window_size.x, window_size.y);
 	combined_fbo = FBO(window_size.x, window_size.y);
@@ -552,7 +673,9 @@ glm::mat4 getOrthoView()
 }
 glm::mat4 getPerspective()
 {
-	glm::mat4 p = glm::perspective(glm::radians((1 / sqrt(1 - pow(glm::length(eye_position - old_eye_position), 2) / (stars.scale.x))) * 45.0f), (float)window_size.x / (float)window_size.y, 0.1f, 1000000.0f);
+	lorentz = pow(glm::length(eye_position - old_eye_position),1) / (star.scale.x/2)  / (step/step_d) + 1;
+	//lorentz = glm::clamp(lorentz, 1.0f, 4.0f);
+	glm::mat4 p = glm::perspective(glm::radians(min(lorentz * 45.0f, 160.0f)), (float)window_size.x / (float)window_size.y, 0.1f, 10000000.0f);
 	old_eye_position = eye_position;
 	return p;
 }
@@ -573,28 +696,53 @@ void			glLoop(void(*graphics_loop)(), GLFWwindow * window)
 		// start clock for this tick
 		auto start = std::chrono::high_resolution_clock::now();
 
-		if (MOTIONBLUR_ON && GLOW_ON)
-		{
-			//// draw normal scene
-			// load basic shader
-			programs.load_program(1);
-			// bind basic fbo to render to
-			basic_fbo.bind();
-			// clear screen
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glClearColor(0.0f, 0.0f, 0.0f, 1.);
-			// update view and proj matrices
-			view = getperspectiveView();
-			projection = getPerspective();			
-			//// LOAD GLOBAL HANDLES
-			view_mat_handle.load();
-			proj_mat_handle.load();
-			ambient_color_handle.load();
-			//// DRAW
-			graphics_loop();
-			//unbind the fbo
-			basic_fbo.unbind();
+		//// draw normal scene
+		// load basic shader
+		programs.load_program(1);
+		// bind basic fbo to render to
+		basic_fbo.bind();
+		// clear screen
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glClearColor(0.0f, 0.0f, 0.0f, 1.);
+		// update view and proj matrices
+		view = getperspectiveView();
+		projection = getPerspective();
+		//// LOAD GLOBAL HANDLES
+		view_mat_handle.load();
+		proj_mat_handle.load();
+		ambient_color_handle.load();
+		//// DRAW
+		graphics_loop();
+		//unbind the fbo
+		basic_fbo.unbind();
 
+		//// render normal scene to FBO
+		// load glow shader
+		programs.load_program(4);
+		// bind motionblur part fbo to render
+		shift_fbo.bind();
+		// clear screen
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glClearColor(0.0f, 0.0f, 0.0f, 1.);
+		// update view and proj matrices
+		view = getOrthoView();
+		projection = getOrtho();
+		//// LOAD GLOBAL HANDLES
+		shift_view_mat_handle.load();
+		shift_proj_mat_handle.load();
+		// set glow parameters
+		float lor = pow(lorentz, 5);
+		shift_handle.load(glm::vec3(max(lor / 8, 1),max(lor / 8, 1), max(lor, 1)));
+		//// DRAW		
+		// setting obj texture to be from the basic fbo
+		screen_texture.setTex(basic_fbo.tex);
+		// drawing texture onto a square mesh
+		screen_texture.draw(0, &shift_model_mat_handle, &shift_texture_handle, nullptr, nullptr);
+		// unbind motionblur part fbo
+		shift_fbo.unbind();
+
+		if (EFFECTS)
+		{
 			//// render normal scene to FBO
 			// load glow shader
 			programs.load_program(3);
@@ -610,15 +758,19 @@ void			glLoop(void(*graphics_loop)(), GLFWwindow * window)
 			glow_view_mat_handle.load();
 			glow_proj_mat_handle.load();
 			// set glow parameters
-			glow_res_handle.load(glm::vec3(2 / window_size.x, 2 / window_size.y, 10));
+			glow_res_handle.load(glm::vec3(0.5 / window_size.x * lorentz, 0.5 / window_size.y * lorentz, 10));
 			//// DRAW		
 			// setting obj texture to be from the basic fbo
-			screen_texture.setTex(basic_fbo.tex);
+			screen_texture.setTex(shift_fbo.tex);
 			// drawing texture onto a square mesh
 			screen_texture.draw(0, &glow_model_mat_handle, &glow_texture_handle, nullptr, nullptr);
 			// unbind motionblur part fbo
 			motion_blur_parts[current_frame].unbind();					
-			
+			// update current frame for the motionblur
+			current_frame++;
+			current_frame %= MOTION_L;// INT32_MAX;		
+
+
 			//// draw FBO from normal scene
 			// load motionblur accumulator shader
 			programs.load_program(2);
@@ -650,94 +802,19 @@ void			glLoop(void(*graphics_loop)(), GLFWwindow * window)
 				glActiveTexture(GL_TEXTURE0 + motion_blur_parts[i].tex);
 				glBindTexture(GL_TEXTURE_2D, GL_TEXTURE0);
 			}
-
-			// update current frame for the motionblur
-			current_frame++;
-			current_frame %= MOTION_L;// INT32_MAX;			
-
-		}
-		else if (MOTIONBLUR_ON)
-		{
-			//// render normal scene to FBO
-			programs.load_program(1);
-			motion_blur_parts[current_frame].bind();
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glClearColor(0.0f, 0.0f, 0.0f, 1.);
-			view = getperspectiveView();
-			projection = getPerspective();
-			//// LOAD GLOBAL HANDLES
-			view_mat_handle.load();
-			proj_mat_handle.load();
-			ambient_color_handle.load();
-			//// DRAW
-			graphics_loop();
-			motion_blur_parts[current_frame].unbind();
-
-			//// draw FBO from normal scene
-			programs.load_program(2);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glClearColor(0.0f, 0.0f, 0.0f, 1.);
-			view = getOrthoView();
-			projection = getOrtho();
-			//// LOAD GLOBAL HANDLES
-			motion_view_mat_handle.load();
-			motion_proj_mat_handle.load();
-			current_frame_handle.load();
-			motion_length_handle.load();
-			//// DRAW
-			for (int i = 0; i < MOTION_L; ++i)
-			{
-				motion_handles[i].load(motion_blur_parts[i].tex);
-				glActiveTexture(GL_TEXTURE0 + motion_blur_parts[i].tex);
-				glBindTexture(GL_TEXTURE_2D, motion_blur_parts[i].tex);
-			}
-			screen_texture.draw(0, &motion_model_mat_handle, &motion_texture_handle, nullptr, nullptr);
-			for (int i = 0; i < MOTION_L; ++i)
-			{
-				glActiveTexture(GL_TEXTURE0 + motion_blur_parts[i].tex);
-				glBindTexture(GL_TEXTURE_2D, GL_TEXTURE0);
-			}
-
-			current_frame++;
-			current_frame %= MOTION_L;// INT32_MAX;
-		}
-		else if (GLOW_ON)
-		{			
-			//// draw normal scene
-			programs.load_program(1);
-			basic_fbo.bind();
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glClearColor(0.0f, 0.0f, 0.0f, 1.);
-			view = getperspectiveView();
-			projection = getPerspective();
-			//// LOAD GLOBAL HANDLES
-			view_mat_handle.load();
-			proj_mat_handle.load();
-			ambient_color_handle.load();
-			//// DRAW
-			graphics_loop();
-			basic_fbo.unbind();
-
-			//// draw normal scene
-			programs.load_program(3);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glClearColor(0.0f, 0.0f, 0.0f, 1.);
-			view = getOrthoView();
-			projection = getOrtho();
-			//// LOAD GLOBAL HANDLES
-			glow_view_mat_handle.load();
-			glow_proj_mat_handle.load();
-			glow_res_handle.load(glm::vec3(2/window_size.x, 2/window_size.y, 10));
-			//// DRAW
-			screen_texture.setTex(basic_fbo.tex);
-			screen_texture.draw(0, &glow_model_mat_handle, &glow_texture_handle, nullptr, nullptr);
-		}
+		}		
 		else
-		{
+		{ 
+			basic_fbo.unbind();
 			//// draw normal scene
+			// load basic shader
 			programs.load_program(1);
+			// bind basic fbo to render to
+			
+			// clear screen
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glClearColor(0.0f, 0.0f, 0.0f, 1.);
+			// update view and proj matrices
 			view = getperspectiveView();
 			projection = getPerspective();
 			//// LOAD GLOBAL HANDLES
@@ -746,6 +823,7 @@ void			glLoop(void(*graphics_loop)(), GLFWwindow * window)
 			ambient_color_handle.load();
 			//// DRAW
 			graphics_loop();
+			//unbind the fbo
 		}
 
 		//Swap buffers  

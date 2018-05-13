@@ -330,7 +330,7 @@ std::vector<glm::vec2>			generate_sphereical_uvs(std::vector<glm::vec3> v)
 	for (int i = 0; i < v.size(); i++)
 	{
 		uv.push_back(glm::vec2(
-			atan2(v[i].x, v[i].y) / glm::pi<float>() * 0.5f, 
+			atan2(v[i].x, v[i].y) / glm::pi<float>() * 0.05f,
 			asin(v[i].z) / glm::pi<float>() - .5f
 		));
 	}
@@ -787,6 +787,31 @@ Obj::Obj(
 	load_textures(texfilename, normfilename, heightfilename);
 	init(&data);
 }
+Obj::Obj(
+	const char *texfilename,
+	const char *normfilename,
+	const char *heightfilename,
+	std::vector<Vertex>	data,
+	glm::vec3 _pos,
+	glm::vec3 _rotation,
+	GLfloat _theta, 
+	glm::vec3 _pre_rotation,
+	GLfloat _pre_theta,
+	glm::vec3 _scale
+)
+{
+	printf("New primitive object loaded:\n   Vertex count: %i\n", data.size());
+
+	pos = _pos;
+	rotation = _rotation;
+	theta = _theta;
+	scale = _scale;
+	pre_rotation = _pre_rotation;
+	pre_theta = _pre_theta;
+
+	load_textures(texfilename, normfilename, heightfilename);
+	init(&data);
+}
 void Obj::load_textures(
 	const char *texfilename, 
 	const char *normfilename,
@@ -796,7 +821,7 @@ void Obj::load_textures(
 	if (texfilename != "")
 	{
 		tex = load_texture_from_image(texfilename);
-		printf("   Texture file:   %s -> \n", texfilename, tex);
+		printf("   Texture file:   %s -> %i\n", texfilename, tex);
 	}
 	else
 	{
@@ -807,7 +832,7 @@ void Obj::load_textures(
 	if (normfilename != "")
 	{
 		norm = load_texture_from_image(normfilename);
-		printf("   NormalMap file: %s -> \n", normfilename, norm);
+		printf("   NormalMap file: %s -> %i\n", normfilename, norm);
 	}
 	else
 	{
@@ -818,7 +843,7 @@ void Obj::load_textures(
 	if (heightfilename != "")
 	{
 		height = load_texture_from_image(heightfilename);
-		printf("   HeightMap file: %s -> \n", heightfilename, height);
+		printf("   HeightMap file: %s -> %i\n", heightfilename, height);
 	}
 	else
 	{
@@ -863,6 +888,7 @@ void Obj::draw(
 	glm::mat4 m =
 		glm::translate(glm::mat4(1.), pos) *
 		glm::rotate(glm::mat4(1.), theta, rotation) *
+		glm::rotate(glm::mat4(1.), pre_theta, pre_rotation) *
 		glm::scale(glm::mat4(1.), scale);
 	model->load(m);
 

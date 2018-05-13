@@ -43,26 +43,36 @@ public:
 		return finished;
 	}
 
-	glm::vec3 lerpStepSmooth()
+	glm::vec3 lerpStepSmooth(float step)
 	{
 		if (t < 1)
 		{
 			t += step;
 			return start + (end - start) * smoothstep(0, 1, t);
 		}
-		stepWait();
+		stepWait(step);
 		return end;
 	}
 
-	glm::vec3 lerpStep()
+	glm::vec3 lerpStep(float step)
 	{
 		if (t < 1)
 		{
 			t += step;
 			return start + (end - start) * t;
 		}
-		stepWait();
+		stepWait(step);
 		return end;
+	}
+
+	glm::vec3 lerpStepSmooth()
+	{
+		return lerpStepSmooth(step);
+	}
+
+	glm::vec3 lerpStep()
+	{
+		return lerpStep(step);
 	}
 
 	glm::vec3 getStart()
@@ -99,7 +109,7 @@ public:
 		return x * x * (3 - 2 * x);
 	}
 	
-	void stepWait()
+	void stepWait(float step)
 	{
 		if (t < 1 + wait)
 			t += step;
@@ -113,68 +123,68 @@ public:
 
 struct BezierLerper : Lerper
 {
-	Lerper line1, line2;
+	//Lerper line1, line2;
 
-	BezierLerper(glm::vec3 start, glm::vec3 control, glm::vec3 end, float step, float wait)
-	{
-		line1 = Lerper(start, control, step, wait);
-		line2 = Lerper(control, end, step, wait);
-	}
+	//BezierLerper(glm::vec3 start, glm::vec3 control, glm::vec3 end, float step, float wait)
+	//{
+	//	line1 = Lerper(start, control, step, wait);
+	//	line2 = Lerper(control, end, step, wait);
+	//}
 
-	glm::vec3 lerpStepSmooth()
-	{
-		if (!line1.isFinished())
-		{
-			glm::vec3 p1 = line1.lerpStepSmooth();
-			glm::vec3 p2 = line2.lerpStepSmooth();
-			return p1 + (p2 - p1) * smoothstep(0,1,line1.t);
-		}
-		return line2.getEnd();
-	}
+	//glm::vec3 lerpStepSmooth()
+	//{
+	//	if (!line1.isFinished())
+	//	{
+	//		glm::vec3 p1 = line1.lerpStepSmooth();
+	//		glm::vec3 p2 = line2.lerpStepSmooth();
+	//		return p1 + (p2 - p1) * smoothstep(0,1,line1.t);
+	//	}
+	//	return line2.getEnd();
+	//}
 
-	glm::vec3 lerpSmooth()
-	{
-		if (!line1.isFinished())
-		{
-			glm::vec3 p1 = line1.lerpStep();
-			glm::vec3 p2 = line2.lerpStep();
-			return p1 + (p2 - p1) * line1.t;
-		}
-		line1.stepWait();
-		line2.stepWait();
-		return line2.getEnd();
-	}
+	//glm::vec3 lerpSmooth()
+	//{
+	//	if (!line1.isFinished())
+	//	{
+	//		glm::vec3 p1 = line1.lerpStep();
+	//		glm::vec3 p2 = line2.lerpStep();
+	//		return p1 + (p2 - p1) * line1.t;
+	//	}
+	//	line1.stepWait();
+	//	line2.stepWait();
+	//	return line2.getEnd();
+	//}
 
-	bool isFinished()
-	{
-		return line1.isFinished() && line2.isFinished();
-	}
+	//bool isFinished()
+	//{
+	//	return line1.isFinished() && line2.isFinished();
+	//}
 
-	glm::vec3 getStart()
-	{
-		return line1.getStart();
-	}
+	//glm::vec3 getStart()
+	//{
+	//	return line1.getStart();
+	//}
 
-	glm::vec3 getEnd()
-	{
-		return line2.getEnd();
-	}
+	//glm::vec3 getEnd()
+	//{
+	//	return line2.getEnd();
+	//}
 
-	float getStep()
-	{
-		return line1.getStep();
-	}
+	//float getStep()
+	//{
+	//	return line1.getStep();
+	//}
 
-	float getWait()
-	{
-		return line1.getWait();
-	}
+	//float getWait()
+	//{
+	//	return line1.getWait();
+	//}
 
-	void reset()
-	{
-		line1.reset();
-		line2.reset();
-	}
+	//void reset()
+	//{
+	//	line1.reset();
+	//	line2.reset();
+	//}
 
 };
 
@@ -218,10 +228,10 @@ public:
 		sequence.push_back(Lerper(sequence.back().getEnd(), next, sequence.front().getStep(), wait));
 	}
 
-	void addLerper(glm::vec3 control, glm::vec3 next)
-	{
-		sequence.push_back(BezierLerper(sequence.back().getEnd(), control, next, sequence.front().getStep(), sequence.front().getWait()));
-	}
+	//void addLerper(glm::vec3 control, glm::vec3 next)
+	//{
+	//	sequence.push_back(BezierLerper(sequence.back().getEnd(), control, next, sequence.front().getStep(), sequence.front().getWait()));
+	//}
 
 	void reset()
 	{
@@ -233,6 +243,54 @@ public:
 	bool isFinished()
 	{
 		return sequence.size() > 0 && sequence[sequence.size() - 1].isFinished();
+	}
+
+	glm::vec3 lerpStep(float step)
+	{
+		if (sequence.size() > 0)
+		{
+			if (sequence[currentLerper].isFinished())
+			{
+				if (currentLerper == sequence.size() - 1)
+					return sequence[currentLerper].getEnd();
+				else
+					currentLerper++;
+			}
+			return sequence[currentLerper].lerpStep(step);
+		}
+		return glm::vec3();
+	}
+
+	glm::vec3 lerpStepSmooth(float step)
+	{
+		if (sequence.size() > 0)
+		{
+			if (sequence[currentLerper].isFinished())
+			{
+				if (currentLerper == sequence.size() - 1)
+					return sequence[currentLerper].getEnd();
+				else
+					currentLerper++;				
+			}
+			return sequence[currentLerper].lerpStepSmooth(step);
+		}
+		return glm::vec3();
+	}
+
+	glm::vec3 lerpStepSmooth()
+	{
+		if (sequence.size() > 0)
+		{
+			if (sequence[currentLerper].isFinished())
+			{
+				if (currentLerper == sequence.size() - 1)
+					return sequence[currentLerper].getEnd();
+				else
+					currentLerper++;
+			}
+			return sequence[currentLerper].lerpStepSmooth();
+		}
+		return glm::vec3();
 	}
 
 	glm::vec3 lerpStep()
@@ -247,22 +305,6 @@ public:
 					currentLerper++;
 			}
 			return sequence[currentLerper].lerpStep();
-		}
-		return glm::vec3();
-	}
-
-	glm::vec3 lerpStepSmooth()
-	{
-		if (sequence.size() > 0)
-		{
-			if (sequence[currentLerper].isFinished())
-			{
-				if (currentLerper == sequence.size() - 1)
-					return sequence[currentLerper].getEnd();
-				else
-					currentLerper++;				
-			}
-			return sequence[currentLerper].lerpStepSmooth();
 		}
 		return glm::vec3();
 	}
@@ -325,6 +367,60 @@ public:
 			l.reset();
 		for (Lerper l : others)
 			l.reset();
+	}
+
+	void lerpStep(float step)
+	{
+		if (sequence.size() > 0)
+		{
+			if (sequence[currentLerper].isFinished())
+			{
+				if (currentLerper == sequence.size() - 1)
+				{
+					currentPosition = sequence[currentLerper].getEnd();
+					currentDirection = directions[currentLerper].getEnd();
+					currentUp = ups[currentLerper].getEnd();
+					currentOther = others[currentLerper].getEnd();
+				}
+				else
+					currentLerper++;
+			}
+			else {
+				currentPosition = sequence[currentLerper].lerpStep(step);
+				currentDirection = directions[currentLerper].lerpStep(step);
+				currentUp = ups[currentLerper].lerpStep(step);
+				currentOther = others[currentLerper].lerpStep(step);
+			}
+		}
+		else
+			currentPosition = currentDirection = currentUp = currentOther = glm::vec3();
+	}
+
+	void lerpStepSmooth(float step)
+	{
+		if (sequence.size() > 0)
+		{
+			if (sequence[currentLerper].isFinished())
+			{
+				if (currentLerper == sequence.size() - 1)
+				{
+					currentPosition = sequence[currentLerper].getEnd();
+					currentDirection = directions[currentLerper].getEnd();
+					currentUp = ups[currentLerper].getEnd();
+					currentOther = others[currentLerper].getEnd();
+				}
+				else
+					currentLerper++;
+			}
+			else {
+				currentPosition = sequence[currentLerper].lerpStepSmooth(step);
+				currentDirection = directions[currentLerper].lerpStepSmooth(step);
+				currentUp = ups[currentLerper].lerpStepSmooth(step);
+				currentOther = others[currentLerper].lerpStepSmooth(step);
+			}
+		}
+		else
+			currentPosition = currentDirection = currentUp = currentOther = glm::vec3();
 	}
 
 	void lerpStep()

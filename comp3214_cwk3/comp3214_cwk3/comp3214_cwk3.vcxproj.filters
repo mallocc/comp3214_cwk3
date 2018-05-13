@@ -1270,5 +1270,8 @@
     <None Include="shaders\render_to_texture _glow.frag">
       <Filter>shaders</Filter>
     </None>
+    <None Include="shaders\blueshift.frag">
+      <Filter>shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

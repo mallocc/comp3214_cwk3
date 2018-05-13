@@ -1,41 +1,42 @@
-﻿  cwk3.cpp
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\glslprogram.h(141): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\lerp.h(38): warning C4800: 'float': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(623): warning C4002: too many actual parameters for macro 'max'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(661): warning C4002: too many actual parameters for macro 'min'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(662): warning C4002: too many actual parameters for macro 'max'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(718): warning C4002: too many actual parameters for macro 'max'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(800): warning C4002: too many actual parameters for macro 'max'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(801): warning C4002: too many actual parameters for macro 'max'
-cwk3.cpp(111): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(236): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(244): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(245): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(246): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(256): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(257): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(258): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(259): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(268): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(270): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(271): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(272): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(273): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(274): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(275): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(276): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(277): warning C4305: 'argument': truncation from 'double' to 'float'
-cwk3.cpp(523): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-cwk3.cpp(524): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-cwk3.cpp(525): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-cwk3.cpp(526): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-cwk3.cpp(528): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-cwk3.cpp(751): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-cwk3.cpp(793): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+﻿  Obj.cpp
+Obj.cpp(136): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+Obj.cpp(181): warning C4101: 'z': unreferenced local variable
+Obj.cpp(181): warning C4101: 'y': unreferenced local variable
+Obj.cpp(181): warning C4101: 'x': unreferenced local variable
+Obj.cpp(199): warning C4101: 'z': unreferenced local variable
+Obj.cpp(199): warning C4101: 'y': unreferenced local variable
+Obj.cpp(199): warning C4101: 'x': unreferenced local variable
+Obj.cpp(295): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+Obj.cpp(296): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+Obj.cpp(407): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+Obj.cpp(493): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+Obj.cpp(495): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+Obj.cpp(497): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+Obj.cpp(505): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+Obj.cpp(552): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+Obj.cpp(554): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+Obj.cpp(556): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+Obj.cpp(640): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
+Obj.cpp(640): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'unsigned __int64'
+  Obj.cpp(640): note: consider using '%zi' in the format string
+Obj.cpp(676): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
+Obj.cpp(676): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'unsigned __int64'
+  Obj.cpp(676): note: consider using '%zi' in the format string
+Obj.cpp(713): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
+Obj.cpp(713): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'unsigned __int64'
+  Obj.cpp(713): note: consider using '%zi' in the format string
+Obj.cpp(759): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
+Obj.cpp(759): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'unsigned __int64'
+  Obj.cpp(759): note: consider using '%zi' in the format string
+Obj.cpp(780): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
+  Obj.cpp(780): note: consider using '%zi' in the format string
+Obj.cpp(803): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
+  Obj.cpp(803): note: consider using '%zi' in the format string
+Obj.cpp(855): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   Generating code
-  770 of 6208 functions (12.4%) were compiled, the rest were copied from previous compilation.
-    4 functions were new in current compilation
-    127 functions had inline decision re-evaluated but remain unchanged
+  760 of 5383 functions (14.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    128 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   comp3214_cwk3.vcxproj -> C:\Users\hercu\CloudStation\GitShit\comp3214_cwk3\comp3214_cwk3\x64\Release\comp3214_cwk3.exe
   comp3214_cwk3.vcxproj -> C:\Users\hercu\CloudStation\GitShit\comp3214_cwk3\comp3214_cwk3\x64\Release\comp3214_cwk3.pdb (Full PDB)
