@@ -572,6 +572,10 @@
     <None Include="shaders\complex2.vert" />
     <None Include="shaders\phong.frag" />
     <None Include="shaders\phong.vert" />
+    <None Include="shaders\phong_texture.frag" />
+    <None Include="shaders\phong_texture.vert" />
+    <None Include="shaders\phong_texture_normals.frag" />
+    <None Include="shaders\phong_texture_normals.vert" />
     <None Include="shaders\render_to_texture _glow.frag" />
     <None Include="shaders\render_to_texture.frag" />
     <None Include="shaders\render_to_texture.vert" />

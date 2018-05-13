@@ -11,8 +11,6 @@ uniform mat4 u_m;
 uniform mat4 u_v;
 uniform mat4 u_p;
 
-uniform vec3 u_ambient_color;
-
 uniform sampler2D u_tex;
 uniform sampler2D u_tex0;
 uniform sampler2D u_tex1;

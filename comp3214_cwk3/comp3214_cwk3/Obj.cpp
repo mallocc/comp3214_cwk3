@@ -330,7 +330,7 @@ std::vector<glm::vec2>			generate_sphereical_uvs(std::vector<glm::vec3> v)
 	for (int i = 0; i < v.size(); i++)
 	{
 		uv.push_back(glm::vec2(
-			atan2(v[i].x, v[i].y) / glm::pi<float>() * 0.05f,
+			atan2(v[i].x, v[i].y) / glm::pi<float>() * 0.5f,
 			asin(v[i].z) / glm::pi<float>() - .5f
 		));
 	}

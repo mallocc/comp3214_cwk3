@@ -33,8 +33,8 @@ void main()
 	//texture2D(u_tex,o_uv + vec2(0,1) * u_glow_res.y).rgb;
 
 	final_color /= u_glow_res.z * u_glow_res.z * 4 * 0.5f;
-	final_color += texture2D(u_tex,o_uv).rgb;
-	final_color /= 2.0f;
+//	final_color += texture2D(u_tex,o_uv).rgb;
+//	final_color /= 2.0f;
 
 // apply fragment color
 	gl_FragColor = vec4(final_color,1);

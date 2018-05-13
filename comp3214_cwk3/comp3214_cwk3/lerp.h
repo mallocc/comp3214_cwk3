@@ -35,7 +35,8 @@ public:
 
 	void reset()
 	{
-		finished = t = 0;
+		finished = 0;
+		t = 0;
 	}
 
 	bool isFinished()
@@ -315,6 +316,7 @@ public:
 			if (currentLerper < sequence.size() - 1)
 				currentLerper++;
 	}
+
 };
 
 
@@ -359,18 +361,26 @@ public:
 	void reset()
 	{
 		currentLerper = 0;
-		for (Lerper l : sequence)
-			l.reset();
-		for (Lerper l : directions)
-			l.reset();
-		for (Lerper l : ups)
-			l.reset();
-		for (Lerper l : others)
-			l.reset();
+		for (int i = 0; i < sequence.size(); ++i)
+			sequence[i].reset();
+		for (int i = 0; i < directions.size(); ++i)
+			directions[i].reset();
+		for (int i = 0; i < ups.size(); ++i)
+			ups[i].reset();
+		for (int i = 0; i < others.size(); ++i)
+			others[i].reset();
+		if (sequence.size() > 0)
+		{
+			currentPosition = sequence[currentLerper].getStart();
+			currentDirection = directions[currentLerper].getStart();
+			currentUp = ups[currentLerper].getStart();
+			currentOther = others[currentLerper].getStart();
+		}
 	}
 
-	void lerpStep(float step)
+	bool lerpStep(float step)
 	{
+		bool finished = false;
 		if (sequence.size() > 0)
 		{
 			if (sequence[currentLerper].isFinished())
@@ -384,6 +394,7 @@ public:
 				}
 				else
 					currentLerper++;
+				finished = true;
 			}
 			else {
 				currentPosition = sequence[currentLerper].lerpStep(step);
@@ -394,10 +405,12 @@ public:
 		}
 		else
 			currentPosition = currentDirection = currentUp = currentOther = glm::vec3();
+		return finished;
 	}
 
-	void lerpStepSmooth(float step)
+	bool lerpStepSmooth(float step)
 	{
+		bool finished = false;
 		if (sequence.size() > 0)
 		{
 			if (sequence[currentLerper].isFinished())
@@ -411,6 +424,7 @@ public:
 				}
 				else
 					currentLerper++;
+				finished = true;
 			}
 			else {
 				currentPosition = sequence[currentLerper].lerpStepSmooth(step);
@@ -421,10 +435,12 @@ public:
 		}
 		else
 			currentPosition = currentDirection = currentUp = currentOther = glm::vec3();
+		return finished;
 	}
 
-	void lerpStep()
+	bool lerpStep()
 	{
+		bool finished = false;
 		if (sequence.size() > 0)
 		{
 			if (sequence[currentLerper].isFinished())
@@ -438,6 +454,7 @@ public:
 				}
 				else
 					currentLerper++;
+				finished = true;
 			}
 			else {
 				currentPosition = sequence[currentLerper].lerpStep();
@@ -448,10 +465,12 @@ public:
 		}
 		else
 			currentPosition = currentDirection = currentUp = currentOther = glm::vec3();
+		return finished;
 	}
 
-	void lerpStepSmooth()
+	bool lerpStepSmooth()
 	{
+		bool finished = false;
 		if (sequence.size() > 0)
 		{
 			if (sequence[currentLerper].isFinished())
@@ -465,6 +484,7 @@ public:
 				}
 				else
 					currentLerper++;
+				finished = true;
 			}
 			else {
 				currentPosition = sequence[currentLerper].lerpStepSmooth();
@@ -475,6 +495,7 @@ public:
 		}
 		else
 			currentPosition = currentDirection = currentUp = currentOther = glm::vec3();
+		return finished;
 	}
 
 private:

@@ -6,7 +6,5 @@ struct Light
 {
 	glm::vec3 pos;
 	glm::vec3 color;
-	float brightness;
-	float specular_scale;
-	float shininess;
+	glm::vec3 brightness_specscale_shinniness;
 };

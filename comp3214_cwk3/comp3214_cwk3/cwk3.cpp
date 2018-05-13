@@ -10,7 +10,7 @@
 
 #define COE 1
 #define GRAVITY 0
-#define MOTION_L 20
+#define MOTION_L 10
 
 GLSLProgramManager	programs;
 
@@ -20,6 +20,11 @@ view_mat_handle,
 proj_mat_handle,
 ambient_color_handle,
 texture_handle,
+normal_handle,
+light_pos_handle,
+eye_pos_handle,
+light_properties_handle,
+light_color_handle,
 
 motion_model_mat_handle,
 motion_view_mat_handle,
@@ -47,6 +52,7 @@ glm::vec2
 
 glm::vec3
 	eye_position(0, 5, -20),
+	eye_velocity,
 	old_eye_position = eye_position,
 	eye_direction,
 	up(0, 1, 0),
@@ -66,6 +72,87 @@ FBO
 	basic_fbo,
 	shift_fbo,
 	combined_fbo;
+
+Light light;
+
+struct Camera
+{
+	glm::vec3 pos, vel, dir, dir_vel, up, up_vel;
+
+	Camera() {}
+
+	Camera(glm::vec3 pos, glm::vec3 vel, glm::vec3 dir, glm::vec3 up)
+	{
+		this->pos = pos;
+		this->vel = vel;
+		this->dir = (dir);
+		this->up = up;
+	}
+
+	void update(float dt, float friction)
+	{
+		vel *= friction;
+		pos += vel * dt;
+		dir_vel *= friction;
+		dir += dir_vel;
+		up_vel *= friction;
+		up += up_vel;
+	}
+
+	void apply_force(glm::vec3 force)
+	{
+		vel += force;
+	}
+	void apply_force_foward()
+	{
+		vel += dir;
+	}
+	void apply_force_backward()
+	{
+		vel -= dir;
+	}
+	void apply_force_right()
+	{
+		vel += glm::cross(dir, up);
+	}
+	void apply_force_left()
+	{
+		vel += -glm::cross(dir, up);
+	}
+
+	void yaw_left(float amount)
+	{
+		dir = glm::quat(glm::vec3(0, glm::radians(amount), 0)) * dir;
+	}
+	void yaw_right(float amount) 
+	{
+		dir = glm::quat(glm::vec3(0, -glm::radians(amount), 0)) * dir;
+	}
+	void pitch_up(float amount);
+	void pitch_down(float amount);
+	void roll_left(float amount);
+	void roll_right(float amount);
+
+	void brake(float friction)
+	{
+		vel *= friction;
+	}
+
+	glm::vec3 get_position()
+	{
+		return pos;
+	}
+
+	glm::vec3 get_look_position()
+	{
+		return pos + dir;
+	}
+
+	glm::vec3 get_up()
+	{
+		return up;
+	}
+} camera = Camera(glm::vec3(), glm::vec3(), glm::vec3(1,0,0), glm::vec3(0, 1, 0));
 
 Obj
 terrain, water, falcon, 
@@ -98,6 +185,14 @@ float lorentz = 1;
 float step_d = 0.0005f;
 float step = step_d;
 
+bool override_eye_direction = false;
+
+float pitch_d = 0.01f;
+float yaw_d = 10.0f;
+
+bool TOUR_ON = false;
+bool TOUR_PAUSE = false;
+
 //Returns random float
 inline float		randf()
 {
@@ -117,7 +212,10 @@ static void		error_callback(int error, const char* description)
 }
 
 
-
+void reset_scene(int scene)
+{
+	cameraSequences[scene].reset();
+}
 
 void transition_scene(int destiniation_scene, glm::vec3 current_position, glm::vec3 current_direction, glm::vec3 current_up, glm::vec3 current_fov)
 {
@@ -132,7 +230,7 @@ void transition_scene(int destiniation_scene, glm::vec3 current_position, glm::v
 		current_direction, cameraSequences[destiniation_scene].directions.front().getStart(),
 		current_up, cameraSequences[destiniation_scene].ups.front().getStart(),
 		current_fov, cameraSequences[destiniation_scene].others.front().getStart(),
-		0.001, 0.0);
+		1, 0.0);
 }
 
 static void		key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -144,30 +242,58 @@ static void		key_callback(GLFWwindow* window, int key, int scancode, int action,
 		case GLFW_KEY_ENTER:
 			break;
 		case GLFW_KEY_UP:
-			//eye_position += eye_position * 0.1f;
-			step += step_d;
+			//eye_velocity += glm::normalize(eye_direction - eye_position);
+			camera.apply_force_foward();
 			break;
 		case GLFW_KEY_DOWN:
-			//eye_position -= eye_position * 0.1f;
-			step -= step_d;
-			step = max(step, 0);
+			//eye_velocity -= glm::normalize(eye_direction - eye_position);
+			camera.apply_force_backward();
 			break;
 		case GLFW_KEY_RIGHT:
-			eye_position = glm::quat(glm::vec3(0, glm::radians(3.0f), 0)) * eye_position;
+			//eye_direction = glm::quat(glm::vec3(0, -glm::radians(yaw_d), 0)) * glm::normalize(eye_direction - eye_position) + eye_position;
+			camera.yaw_right(yaw_d);
 			break;
 		case GLFW_KEY_LEFT:
-			eye_position = glm::quat(glm::vec3(0, -glm::radians(3.0f), 0)) * eye_position;
+			//eye_direction = glm::quat(glm::vec3(0, glm::radians(yaw_d), 0)) * glm::normalize(eye_direction - eye_position) + eye_position;
+			camera.yaw_left(yaw_d);
 			break;
-		case GLFW_KEY_SPACE:
-			transition_scene(scene + 1, eye_position, eye_direction, up, fov);
+		case GLFW_KEY_LEFT_SHIFT:
+			//eye_direction = glm::quat(glm::vec3(0, glm::radians(yaw_d), 0)) * glm::normalize(eye_direction - eye_position) + eye_position;
+			camera.brake(0.9);
 			break;
-		case GLFW_KEY_M:
-			MOTIONBLUR_ON = !MOTIONBLUR_ON;
+		//case GLFW_KEY_SPACE:
+		//	transition_scene(scene + 1, eye_position, eye_direction, up, fov);
+		//	break;
+		case GLFW_KEY_T:
+			if (!TOUR_ON)
+			{
+				TOUR_ON = true;
+				TOUR_PAUSE = false;
+				transition_scene(SCENE_1, eye_position, eye_direction, up, fov);
+			}
+			else
+			{
+				TOUR_PAUSE = !TOUR_PAUSE;
+			}
+
 			break;
-		case GLFW_KEY_G:
-			GLOW_ON = !GLOW_ON;
-			break;
+		//case GLFW_KEY_M:
+		//	MOTIONBLUR_ON = !MOTIONBLUR_ON;
+		//	break;
+		//case GLFW_KEY_G:
+		//	GLOW_ON = !GLOW_ON;
+		//	break;
 		case GLFW_KEY_E:
+			TOUR_ON = false;
+			camera.pos = eye_position;
+			camera.dir = glm::normalize(eye_direction - eye_position);
+			camera.up = glm::vec3(0, 1, 0);
+			camera.vel = glm::vec3();
+			break;
+		case GLFW_KEY_R:
+			reset_scene(SCENE_1);
+			break;
+		case GLFW_KEY_V:
 			EFFECTS = !EFFECTS;
 			break;
 
@@ -181,10 +307,13 @@ static void		key_callback(GLFWwindow* window, int key, int scancode, int action,
 
 void update_camera(int scene, float step)
 {
-	cameraSequences[scene].lerpStepSmooth(step);
-	eye_position = cameraSequences[scene].currentPosition;
-	eye_direction = cameraSequences[scene].currentDirection;
-	up = cameraSequences[scene].currentUp;
+	if (!TOUR_PAUSE)
+	{
+		cameraSequences[scene].lerpStepSmooth();
+		eye_position = cameraSequences[scene].currentPosition;
+		eye_direction = cameraSequences[scene].currentDirection;
+		up = cameraSequences[scene].currentUp;
+	}
 }
 
 void loop()
@@ -195,18 +324,18 @@ void loop()
 	//water.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
 	//falcon.draw(1, &model_mat_handle, &texture_handle, nullptr, nullptr);
 	//printf("%i\n", stars.tex);
-	stars.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
-	star.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
+	stars.draw(0, &model_mat_handle, &texture_handle, &normal_handle, nullptr);
+	star.draw(0, &model_mat_handle, &texture_handle, &normal_handle, nullptr);
 
-	earth.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
-	moon.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
-	mars.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
-	venus.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
-	mercury.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
-	jupiter.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
-	saturn.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
-	uranus.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
-	neptune.draw(0, &model_mat_handle, &texture_handle, nullptr, nullptr);
+	earth.draw(0, &model_mat_handle, &texture_handle, &normal_handle, nullptr);
+	moon.draw(0, &model_mat_handle, &texture_handle, &normal_handle, nullptr);
+	mars.draw(0, &model_mat_handle, &texture_handle, &normal_handle, nullptr);
+	venus.draw(0, &model_mat_handle, &texture_handle, &normal_handle, nullptr);
+	mercury.draw(0, &model_mat_handle, &texture_handle, &normal_handle, nullptr);
+	jupiter.draw(0, &model_mat_handle, &texture_handle, &normal_handle, nullptr);
+	saturn.draw(0, &model_mat_handle, &texture_handle, &normal_handle, nullptr);
+	uranus.draw(0, &model_mat_handle, &texture_handle, &normal_handle, nullptr);
+	neptune.draw(0, &model_mat_handle, &texture_handle, &normal_handle, nullptr);
 	
 	earth.theta += 0.001f;
 	mars.theta += 0.001f;
@@ -218,30 +347,42 @@ void loop()
 	falcon.pos = glm::quat(glm::vec3(0, 0.0001f, 0)) * (falcon.pos-earth.pos) + earth.pos;
 	moon.pos = glm::quat(glm::vec3(0, -0.0001f, 0)) * (moon.pos-earth.pos) + earth.pos;
 	
-	switch (scene)
+	if (TOUR_ON)
 	{
-	case SCENE_0:
-		update_camera(SCENE_0, step);
-		if (cameraSequences[SCENE_0].isFinished())
-			scene = next_scene;
-		break;
-	case SCENE_1:
-		//eye_position = falcon.pos + glm::vec3(-0.1, 0.01, 0);
-		//eye_direction = falcon.pos;
+
 		update_camera(SCENE_1, step);
-		break;
-	case SCENE_2:
-		update_camera(SCENE_2, step);
-		break;
-	case SCENE_3:
-		update_camera(SCENE_3, step);
-		break;
-	case SCENE_4:
-		update_camera(SCENE_4, step);
-		break;
-	default:
-		break;
-	}	
+		//switch (scene)
+		//{
+		//case SCENE_0:
+		//	update_camera(SCENE_0, step);
+		//	if (cameraSequences[SCENE_0].isFinished())
+		//		scene = next_scene;
+		//	break;
+		//case SCENE_1:
+		//	//eye_position = falcon.pos + glm::vec3(-0.1, 0.01, 0);
+		//	//eye_direction = falcon.pos;
+		//	update_camera(SCENE_1, step);
+		//	break;
+		//case SCENE_2:
+		//	update_camera(SCENE_2, step);
+		//	break;
+		//case SCENE_3:
+		//	update_camera(SCENE_3, step);
+		//	break;
+		//case SCENE_4:
+		//	update_camera(SCENE_4, step);
+		//	break;
+		//default:
+		//	break;
+		//}
+	}
+	else
+	{
+		camera.update(1.0f, 0.999f);
+		eye_position = camera.get_position();
+		eye_direction = camera.get_look_position();
+		up = camera.get_up();
+	}
 }
 
 
@@ -253,19 +394,22 @@ void init_camera_tour()
 	cameraSequences.push_back(CameraSequencer());
 	//scene1
 	cameraSequences.push_back(CameraSequencer(
-		neptune.pos + glm::vec3(200, 0, 0), neptune.pos + glm::vec3(300, 0, 200),
-		neptune.pos, mars.pos,
+		neptune.pos + glm::vec3(-200, 0, 100), neptune.pos + glm::vec3(300, 0, 200),
+		neptune.pos, neptune.pos,
 		glm::vec3(0,1,1), glm::vec3(0,1,1),
 		glm::vec3(45.0f,0,0), glm::vec3(45.0f, 0, 0),
 		step,0.0
 	));
 
-	cameraSequences[SCENE_1].addLerper(mars.pos + glm::vec3(300, 0, 0), mars.pos, glm::vec3(0, 1, 0), 0.001, 0);
-	cameraSequences[SCENE_1].addLerper(mars.pos + glm::vec3(1000, 0, 500), star.pos, glm::vec3(0, 1, 0), 0.001, 0);
-	cameraSequences[SCENE_1].addLerper(star.pos + glm::vec3(2000, 0, -1000), star.pos, glm::vec3(0, 1, 0), 0.001, 0);
 
+	cameraSequences[SCENE_1].addLerper(neptune.pos + glm::vec3(300, 0, 200), neptune.pos + glm::vec3(-300, 0, 200), glm::vec3(0, 1, 0), 0.001, 0);
+	cameraSequences[SCENE_1].addLerper(star.pos + glm::vec3(2000, 0, -1000), star.pos, glm::vec3(0, 1, 0), 0.001, 0);
 	cameraSequences[SCENE_1].addLerper(star.pos + glm::vec3(-1000, 0, -1500), mars.pos, glm::vec3(0, 1, 0), 0.001, 0);
+
 	cameraSequences[SCENE_1].addLerper(mars.pos + glm::vec3(-300, 0, 0), mars.pos, glm::vec3(0, 1, 0), 0.001, 0);
+	cameraSequences[SCENE_1].addLerper(mars.pos + glm::vec3(0, 0, 200), mars.pos, glm::vec3(0, 1, 0), 0.001, 0);
+	cameraSequences[SCENE_1].addLerper(mars.pos + glm::vec3(100, 200, 100), mars.pos, glm::vec3(0, 1, 0), 0.001, 0);
+	cameraSequences[SCENE_1].addLerper(mars.pos + glm::vec3(0, 0, -200), mars.pos, glm::vec3(0, 1, 0), 0.001, 0);
 
 	//scene2
 	cameraSequences.push_back(CameraSequencer(
@@ -304,7 +448,9 @@ void init_objects()
 	// create sphere data for screen A, B and D
 	std::vector<glm::vec3>
 		v,
-		c;
+		c,
+		n,
+		t;
 
 	int res_t = 100;
 
@@ -355,12 +501,12 @@ void init_objects()
 	//);
 	//falcon.scale /= 10000;
 
-	int res = 50;
+	int res = 30;
 
 	v = generate_sphere_invert(res, res);
 
 	stars = Obj(
-		"textures/stars.jpg", "", "",
+		"textures/stars.jpg", "textures/blank.bmp", "",
 		//"textures/moss_color.jpg",
 		//"textures/moss_norm.jpg",
 		//"textures/moss_height.jpg",
@@ -377,7 +523,7 @@ void init_objects()
 	v = generate_sphere(res, res);
 
 	star = Obj(
-		"textures/sun.jpg", "", "",
+		"textures/sun.jpg", "textures/blank.bmp", "",
 		//"textures/moss_color.jpg",
 		//"textures/moss_norm.jpg",
 		//"textures/moss_height.jpg",
@@ -391,7 +537,7 @@ void init_objects()
 	);
 
 	earth = Obj(
-		"textures/earth.jpg", "", "",
+		"textures/earth.jpg", "textures/blank.bmp", "",
 		//"textures/moss_color.jpg",
 		//"textures/moss_norm.jpg",
 		//"textures/moss_height.jpg",
@@ -405,7 +551,7 @@ void init_objects()
 	);
 
 	moon = Obj(
-		"textures/moon.jpg", "", "",
+		"textures/moon.jpg", "textures/blank.bmp", "",
 		//"textures/moss_color.jpg",
 		//"textures/moss_norm.jpg",
 		//"textures/moss_height.jpg",
@@ -419,11 +565,11 @@ void init_objects()
 	);
 
 	mars = Obj(
-		"textures/mars.jpg", "", "",
+		"textures/5672_mars_4k_color.jpg", "textures/5672_mars_4k_normal.jpg", "",
 		//"textures/moss_color.jpg",
 		//"textures/moss_norm.jpg",
 		//"textures/moss_height.jpg",
-		pack_object(&v, GEN_UVS_SPHERE | GEN_NORMS, BLACK),
+		pack_object(&v, GEN_UVS_SPHERE | GEN_NORMS | GEN_TANGS, BLACK),
 		earth.pos * 1.52f,
 		glm::vec3(0, 1, 0),
 		glm::radians(0.0f),
@@ -433,7 +579,7 @@ void init_objects()
 	);
 
 	venus = Obj(
-		"textures/venus.jpg", "", "",
+		"textures/venus.jpg", "textures/blank.bmp", "",
 		//"textures/moss_color.jpg",
 		//"textures/moss_norm.jpg",
 		//"textures/moss_height.jpg",
@@ -447,7 +593,7 @@ void init_objects()
 	);
 
 	mercury = Obj(
-		"textures/mercury.jpg", "", "",
+		"textures/mercury.jpg", "textures/blank.bmp", "",
 		//"textures/moss_color.jpg",
 		//"textures/moss_norm.jpg",
 		//"textures/moss_height.jpg",
@@ -461,7 +607,7 @@ void init_objects()
 	);
 
 	jupiter = Obj(
-		"textures/jupiter.jpg", "", "",
+		"textures/jupiter.jpg", "textures/blank.bmp", "",
 		//"textures/moss_color.jpg",
 		//"textures/moss_norm.jpg",
 		//"textures/moss_height.jpg",
@@ -475,7 +621,7 @@ void init_objects()
 	);
 
 	saturn = Obj(
-		"textures/saturn.jpg", "", "",
+		"textures/saturn.jpg", "textures/blank.bmp", "",
 		//"textures/moss_color.jpg",
 		//"textures/moss_norm.jpg",
 		//"textures/moss_height.jpg",
@@ -489,7 +635,7 @@ void init_objects()
 	);
 
 	uranus = Obj(
-		"textures/uranus.jpg", "", "",
+		"textures/uranus.jpg", "textures/blank.bmp", "",
 		//"textures/moss_color.jpg",
 		//"textures/moss_norm.jpg",
 		//"textures/moss_height.jpg",
@@ -503,7 +649,7 @@ void init_objects()
 	);
 
 	neptune = Obj(
-		"textures/neptune.jpg", "", "",
+		"textures/neptune.jpg", "textures/blank.bmp", "",
 		//"textures/moss_color.jpg",
 		//"textures/moss_norm.jpg",
 		//"textures/moss_height.jpg",
@@ -519,14 +665,15 @@ void init_objects()
 
 void			init()
 {
-
-
+	light = Light{glm::vec3(), WHITE, glm::vec3(1,1,100)};
+	
 	//// CREATE GLSL PROGAMS
 	printf("\n");
 	printf("Initialising GLSL programs...\n");
 	programs.add_program("shaders/basic.vert", "shaders/basic.frag");
-	programs.add_program("shaders/basic_texture.vert", "shaders/basic_texture.frag");
-	programs.add_program("shaders/render_to_texture.vert", "shaders/render_to_texture.frag");
+	//programs.add_program("shaders/basic_texture.vert", "shaders/basic_texture.frag");
+	programs.add_program("shaders/phong_texture_normals.vert", "shaders/phong_texture_normals.frag");
+	programs.add_program("shaders/render_to_texture.vert", "shaders/render_to_texture2.frag");
 	programs.add_program("shaders/basic_texture.vert", "shaders/basic_texture_glow.frag");
 	programs.add_program("shaders/basic_texture.vert", "shaders/blueshift.frag");
 
@@ -549,6 +696,16 @@ void			init()
 	ambient_color_handle.init(programs.current_program);
 	texture_handle = VarHandle("u_tex");
 	texture_handle.init(programs.current_program);
+	normal_handle = VarHandle("u_norm");
+	normal_handle.init(programs.current_program);
+	light_pos_handle = VarHandle("u_light_pos", &light.pos);
+	light_pos_handle.init(programs.current_program);
+	eye_pos_handle = VarHandle("u_eye_pos", &eye_position);
+	eye_pos_handle.init(programs.current_program);
+	light_properties_handle = VarHandle("u_light_properties", &light.brightness_specscale_shinniness);
+	light_properties_handle.init(programs.current_program);
+	light_color_handle = VarHandle("u_light_color", &light.color);
+	light_color_handle.init(programs.current_program);
 
 	programs.load_program(2);
 	motion_model_mat_handle = VarHandle("u_m", &model);
@@ -579,26 +736,26 @@ void			init()
 	motion_handles[8].init(programs.current_program);
 	motion_handles[9] = VarHandle("u_tex9");
 	motion_handles[9].init(programs.current_program);
-	motion_handles[10] = VarHandle("u_tex10");
-	motion_handles[10].init(programs.current_program);
-	motion_handles[11] = VarHandle("u_tex11");
-	motion_handles[11].init(programs.current_program);
-	motion_handles[12] = VarHandle("u_tex12");
-	motion_handles[12].init(programs.current_program);
-	motion_handles[13] = VarHandle("u_tex13");
-	motion_handles[13].init(programs.current_program);
-	motion_handles[14] = VarHandle("u_tex14");
-	motion_handles[14].init(programs.current_program);
-	motion_handles[15] = VarHandle("u_tex15");
-	motion_handles[15].init(programs.current_program);
-	motion_handles[16] = VarHandle("u_tex16");
-	motion_handles[16].init(programs.current_program);
-	motion_handles[17] = VarHandle("u_tex17");
-	motion_handles[17].init(programs.current_program);
-	motion_handles[18] = VarHandle("u_tex18");
-	motion_handles[18].init(programs.current_program);
-	motion_handles[19] = VarHandle("u_tex19");
-	motion_handles[19].init(programs.current_program);
+	//motion_handles[10] = VarHandle("u_tex10");
+	//motion_handles[10].init(programs.current_program);
+	//motion_handles[11] = VarHandle("u_tex11");
+	//motion_handles[11].init(programs.current_program);
+	//motion_handles[12] = VarHandle("u_tex12");
+	//motion_handles[12].init(programs.current_program);
+	//motion_handles[13] = VarHandle("u_tex13");
+	//motion_handles[13].init(programs.current_program);
+	//motion_handles[14] = VarHandle("u_tex14");
+	//motion_handles[14].init(programs.current_program);
+	//motion_handles[15] = VarHandle("u_tex15");
+	//motion_handles[15].init(programs.current_program);
+	//motion_handles[16] = VarHandle("u_tex16");
+	//motion_handles[16].init(programs.current_program);
+	//motion_handles[17] = VarHandle("u_tex17");
+	//motion_handles[17].init(programs.current_program);
+	//motion_handles[18] = VarHandle("u_tex18");
+	//motion_handles[18].init(programs.current_program);
+	//motion_handles[19] = VarHandle("u_tex19");
+	//motion_handles[19].init(programs.current_program);
 	motion_length_handle = VarHandle("u_motion_length", &l);
 	motion_length_handle.init(programs.current_program);
 	current_frame_handle = VarHandle("u_current_frame", &current_frame);
@@ -673,9 +830,9 @@ glm::mat4 getOrthoView()
 }
 glm::mat4 getPerspective()
 {
-	lorentz = pow(glm::length(eye_position - old_eye_position),1) / (star.scale.x/2)  / (step/step_d) + 1;
+	lorentz = pow(glm::length(eye_position - old_eye_position),1) / (star.scale.x)  / max(step/step_d, 1) + 1;
 	//lorentz = glm::clamp(lorentz, 1.0f, 4.0f);
-	glm::mat4 p = glm::perspective(glm::radians(min(lorentz * 45.0f, 160.0f)), (float)window_size.x / (float)window_size.y, 0.1f, 10000000.0f);
+	glm::mat4 p = glm::perspective(glm::radians(min(lorentz * 45.0f, 160.0f)), (float)window_size.x / (float)window_size.y, 0.1f, 20000000.0f);
 	old_eye_position = eye_position;
 	return p;
 }
@@ -710,6 +867,10 @@ void			glLoop(void(*graphics_loop)(), GLFWwindow * window)
 		//// LOAD GLOBAL HANDLES
 		view_mat_handle.load();
 		proj_mat_handle.load();
+		light_pos_handle.load();
+		eye_pos_handle.load();
+		light_properties_handle.load();
+		light_color_handle.load();
 		ambient_color_handle.load();
 		//// DRAW
 		graphics_loop();
@@ -820,6 +981,10 @@ void			glLoop(void(*graphics_loop)(), GLFWwindow * window)
 			//// LOAD GLOBAL HANDLES
 			view_mat_handle.load();
 			proj_mat_handle.load();
+			light_pos_handle.load();
+			eye_pos_handle.load();
+			light_properties_handle.load();
+			light_color_handle.load();
 			ambient_color_handle.load();
 			//// DRAW
 			graphics_loop();

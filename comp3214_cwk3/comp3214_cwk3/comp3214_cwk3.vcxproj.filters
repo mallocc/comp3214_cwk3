@@ -1273,5 +1273,17 @@
     <None Include="shaders\blueshift.frag">
       <Filter>shaders</Filter>
     </None>
+    <None Include="shaders\phong_texture.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\phong_texture.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\phong_texture_normals.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\phong_texture_normals.vert">
+      <Filter>shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

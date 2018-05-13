@@ -1,88 +1,98 @@
-﻿  cwk3.cpp
+﻿  load_image.cpp
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(553): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(561): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(559): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(601): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(623): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(621): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(659): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(760): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(773): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(845): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(883): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(901): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(1812): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(1841): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(1859): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(2833): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(2958): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(2964): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(2972): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(2974): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(2982): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3016): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3019): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3040): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3043): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3054): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3092): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3290): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3301): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3305): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3482): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3486): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3494): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3502): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3515): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3532): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3536): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3679): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3707): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3718): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3719): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3733): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3752): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3770): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3781): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3790): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3817): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(3818): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(4032): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(4036): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(4041): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(4052): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(4081): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(4088): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(4105): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(4135): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(4168): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(4280): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(4289): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(4294): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(4298): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(4347): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\stb_image\stb_image.h(4552): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+  cwk3.cpp
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\glslprogram.h(141): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\lerp.h(38): warning C4800: 'float': forcing value to bool 'true' or 'false' (performance warning)
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(623): warning C4002: too many actual parameters for macro 'max'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(661): warning C4002: too many actual parameters for macro 'min'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(662): warning C4002: too many actual parameters for macro 'max'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(718): warning C4002: too many actual parameters for macro 'max'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(800): warning C4002: too many actual parameters for macro 'max'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\include\glm\glm\gtc\noise.inl(801): warning C4002: too many actual parameters for macro 'max'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(10): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\perlin.h(58): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(86): warning C4244: 'argument': conversion from 'float' to 'GLsizei', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(96): warning C4244: 'argument': conversion from 'float' to 'GLsizei', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(136): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(374): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(382): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(383): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(384): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(394): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(395): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(396): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(397): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(262): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(405): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(406): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(408): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(407): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(409): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(410): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(411): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(412): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(413): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(414): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(415): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(615): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(813): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(855): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Obj.cpp
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(133): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(178): warning C4101: 'z': unreferenced local variable
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(178): warning C4101: 'y': unreferenced local variable
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(178): warning C4101: 'x': unreferenced local variable
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(196): warning C4101: 'z': unreferenced local variable
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(196): warning C4101: 'y': unreferenced local variable
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(196): warning C4101: 'x': unreferenced local variable
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(292): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(293): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(395): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(397): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(399): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(407): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(454): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(456): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(458): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(542): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(542): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'unsigned __int64'
-  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(542): note: consider using '%zi' in the format string
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(578): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(578): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'unsigned __int64'
-  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(578): note: consider using '%zi' in the format string
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(615): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(615): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'unsigned __int64'
-  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(615): note: consider using '%zi' in the format string
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(661): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'std::string'
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(661): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'unsigned __int64'
-  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(661): note: consider using '%zi' in the format string
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(682): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
-  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(682): note: consider using '%zi' in the format string
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(701): warning C4474: 'printf' : too many arguments passed for format string
-  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(701): note: placeholders and their parameters expect 1 variadic arguments, but 2 were provided
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(712): warning C4474: 'printf' : too many arguments passed for format string
-  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(712): note: placeholders and their parameters expect 1 variadic arguments, but 2 were provided
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(723): warning C4474: 'printf' : too many arguments passed for format string
-  c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(723): note: placeholders and their parameters expect 1 variadic arguments, but 2 were provided
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\obj.cpp(732): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
-  Compiling...
-  main.cpp
-c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\glslprogram.h(141): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(421): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(430): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(439): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(786): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(787): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(788): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(789): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(790): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(792): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(999): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\hercu\cloudstation\gitshit\comp3214_cwk3\comp3214_cwk3\comp3214_cwk3\cwk3.cpp(1041): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Generating Code...
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   comp3214_cwk3.vcxproj -> C:\Users\hercu\CloudStation\GitShit\comp3214_cwk3\comp3214_cwk3\x64\Debug\comp3214_cwk3.exe
