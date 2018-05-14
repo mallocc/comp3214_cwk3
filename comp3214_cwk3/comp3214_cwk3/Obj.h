@@ -110,7 +110,7 @@ public:
 		rotation = glm::vec3(0, 1, 0),
 		pre_rotation = glm::vec3(0, 1, 0),
 		scale = glm::vec3(1, 1, 1), 
-		pos;
+		pos,vel;
 	GLfloat 
 		theta,
 		pre_theta;
@@ -232,3 +232,5 @@ public:
 	);
 	void add(Obj e);
 };
+
+

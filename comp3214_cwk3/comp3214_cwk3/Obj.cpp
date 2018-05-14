@@ -512,14 +512,24 @@ std::vector<Vertex>				pack_object(
 		Vertex vert;
 		if (nv.size() != 0)
 			vert.position = nv[i];
+		else
+			vert.position = glm::vec3();
 		if (c.size() != 0)
 			vert.color = c[i];
+		else
+			vert.color = glm::vec3();
 		if (n.size() != 0)
 			vert.normal = n[i];
+		else
+			vert.normal = glm::vec3();
 		if (uv.size() != 0)
 			vert.uv = uv[i];
+		else
+			vert.uv = glm::vec2();
 		if (t.size() != 0)
 			vert.tangent = t[i];
+		else
+			vert.tangent = glm::vec3();
 		object.push_back(vert);
 	}
 	return object;
@@ -569,14 +579,24 @@ std::vector<Vertex>				pack_object(
 		Vertex vert;
 		if (nv.size() != 0)
 			vert.position = nv[i];
+		else
+			vert.position = glm::vec3();
 		if (c.size() != 0)
 			vert.color = c[i];
+		else
+			vert.color = glm::vec3();
 		if (n.size() != 0)
 			vert.normal = n[i];
+		else
+			vert.normal = glm::vec3();
 		if (uv.size() != 0)
 			vert.uv = uv[i];
+		else
+			vert.uv = glm::vec2();
 		if (t.size() != 0)
 			vert.tangent = t[i];
+		else
+			vert.tangent = glm::vec3();
 		object.push_back(vert);
 	}
 	return object;
@@ -596,14 +616,24 @@ std::vector<Vertex>				pack_object(
 		Vertex vert;
 		if (v != NULL)
 			vert.position = (*v)[i];
+		else
+			vert.position = glm::vec3();
 		if (c != NULL)
 			vert.color = (*c)[i];
+		else
+			vert.color = glm::vec3();
 		if (n != NULL)
 			vert.normal = (*n)[i];
+		else
+			vert.normal = glm::vec3();
 		if (uv != NULL)
 			vert.uv = (*uv)[i];
+		else
+			vert.uv = glm::vec2();
 		if (t != NULL)
 			vert.tangent = (*t)[i];
+		else
+			vert.tangent = glm::vec3();
 		object.push_back(vert);
 	}
 	return object;
